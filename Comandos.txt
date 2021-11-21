@@ -1,0 +1,14 @@
+/Activar Entorno vitual
+venv\Scripts\activate
+
+/Levatar servidor 
+python manage.py runserver
+
+/Revisar migrasiones
+Python manage.py check
+
+/iniciar migraciones
+python manage.py initmigrations
+
+/migrar
+python manage.py migrate

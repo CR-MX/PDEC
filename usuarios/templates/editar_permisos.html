@@ -1,0 +1,37 @@
+
+
+{% extends "base_us.html" %}
+{% block title %}
+    Registrar Nuevo Usuario
+{% endblock %}
+
+{% block content %}
+    <div class="app-card app-card-orders-table shadow-sm mb-5">
+    <table class="table">
+        <thead>
+            <th>Matricula</th>
+            <th>Nombre</th>
+            <th>permiso</th>
+            <th>Selecciona el permiso</th>
+        </thead>
+        <tbody>
+            <tr>
+                {% if usua.username != "admin" %}
+                <td>{{usua.username}}</td>
+                <td>{{usua.first_name}} {{usua.last_name}}</td>
+                <td>{{usua.groups.last}}</td>
+                <td>
+                    <form  method="post" class="order-form">
+                <input class="btn btn-primary btn-sm" type="submit" value="Estudiante" name="_estudiante" href="{% url 'eduacionapp:home' %}">
+                <input class="btn btn-primary btn-sm" type="submit" value="Profesor" href="{% url 'eduacionapp:home' %}">
+
+                {% csrf_token %}
+                </form>
+                </td>
+            </tr>
+
+                {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

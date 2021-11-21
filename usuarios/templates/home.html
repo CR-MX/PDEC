@@ -1,0 +1,79 @@
+{% extends "base_us.html" %}
+{% block title %}
+Login
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+    <!-- Cosas que muestra para el administrador  -->
+    {% if request.user.is_staff %}
+    <h2 class="app-page-title">  Lista de usuarios</h2>
+    <div class="app-card app-card-orders-table shadow-sm mb-5">
+    <table class="table">
+        <thead>
+            <th>Matricula</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            {% for user in usuarios %}
+            <tr>
+                {% if user.username != "admin" %}
+                <td>{{user.username}}</td>
+                <td>{{user.first_name}} {{user.last_name}}</td>
+                <td>
+                    <a href="{% url 'eduacionapp:editar' user.id %}" class="btn btn-primary btn-sm">Modificar Informacion</a>
+                    <a href="{% url 'eduacionapp:editar_permisos' user.id %}" class="btn btn-primary btn-sm">Modificar Permisos</a>
+                    <a href="{% url 'eduacionapp:borrar' user.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+
+                {% endif %}
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+    {% else %}
+    {% if user.is_authenticated %}
+<div class="card-deck card mb-3">
+<!-- Cosas que muestra para el alumno  -->
+  {% if request.user.groups.all.0.name == "alumno" %}
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Alumno</h5>
+      <p class="card-text">Bienvenido alumno a esta sesión.</p>
+      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">:)</a>
+    </div>
+  </div>
+  <!-- Cosas que muestra para el profesor  -->
+{% elif request.user.groups.all.0.name == "profesor"%}
+    <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Docente</h5>
+      <p class="card-text">Bienvenido docente a esta sesión.</p>
+      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">:)</a>
+    </div>
+  </div>
+{% endif %}
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Moodle</h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+       <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Acceder</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Chamilo</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Acceder</a>
+    </div>
+  </div>
+
+</div>
+    {% endif %}
+    {% endif %}
+
+{% endblock %}
