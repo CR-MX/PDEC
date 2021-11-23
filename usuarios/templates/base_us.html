@@ -10,15 +10,31 @@
       </button>
       <div class="collapse navbar-collapse" id="barranavegacion">
         <ul class="navbar-nav">
-
         </ul>
       </div>
 
     <ul class="nav navbar-nav navbar-right">
         {% if user.is_authenticated %}
+        {% if user.username != "admin" %}
         <li>
-            <a href="{% url 'eduacionapp:logout' %}?next={% url 'eduacionapp:login' %}">{{ user.get_username }} - Cerrar sesión</a>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'eduacionapp:editar' user.id %}">Administrar Cuenta</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'eduacionapp:logout' %}?next={% url 'eduacionapp:login' %}">Cerrar Sesión</a></li>
+            </ol>
+          </nav>
         </li>
+        {% endif %}
+        {% if user.username == "admin" %}
+        <li>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href=" ">Administrar Cuentass perrote</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'eduacionapp:logout' %}?next={% url 'eduacionapp:login' %}">Cerrar Sesión</a></li>
+            </ol>
+          </nav>
+        </li>
+        {% endif %}
         {% else %}
         <li>
             <a href="{% url 'eduacionapp:login' %}?next={{request.path}}">Iniciar sesión</a>

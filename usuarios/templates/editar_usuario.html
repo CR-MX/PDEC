@@ -10,6 +10,11 @@
         <br>
      <form method="post">
       {% csrf_token %}
+      {% if user.username != "admin" %}
+      <div class="alert alert-danger" role="alert">
+        Al actualizar los datos de tu perfil deberás iniciar sesión nuevamente
+      </div>
+      {% endif %}
       <div class="input-group mb-3 ">
                 <div class="input-group-append">
                     <span class="input-group-text">Matrícula:</span>
