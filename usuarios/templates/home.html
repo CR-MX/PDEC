@@ -1,4 +1,5 @@
 {% extends "base_us.html" %}
+
 {% block title %}
 Login
 {% endblock %}
@@ -20,6 +21,8 @@ Login
             {% for user in usuarios %}
             <tr>
                 {% if user.username != "admin" %}
+
+
                 <td>{{user.username}}</td>
                 <td>{{user.first_name}} {{user.last_name}}</td>
                 <td>
@@ -28,6 +31,7 @@ Login
                     <a href="{% url 'eduacionapp:borrar' user.id %}" class="btn btn-danger btn-sm">Eliminar</a>
                 </td>
             </tr>
+
 
                 {% endif %}
 
