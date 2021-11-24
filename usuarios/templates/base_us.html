@@ -1,7 +1,7 @@
 {% extends "base_bootstrap.html" %}
 {% block navbar %}
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #001447">
     {% if user.is_authenticated %}
     <a class="navbar-brand" href="{% url 'eduacionapp:home' %}">Educación Contínua</a>
     {% else %}
@@ -37,7 +37,7 @@
         {% endif %}
         {% else %}
         <li>
-            <a href="{% url 'eduacionapp:login' %}?next={{request.path}}">Iniciar sesión</a>
+            <a class="text-white" href="{% url 'eduacionapp:login' %}?next={{request.path}}">Iniciar sesión</a>
         </li>
         {% endif %}
     </ul>
