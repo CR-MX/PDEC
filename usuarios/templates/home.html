@@ -35,16 +35,16 @@ Login
                 <td>{{item.last_name}}</td>
                 <td>{{item.groups.last}}</td>
                 <td>{{item.email}}</td>
-                
+
                 <td>
                 {% if item.groups.all.0.name == "alumno" %}
                   <button type="button" class="btn btn-success">{{item.groups.last}}</button>
-                  
+
                   {% else %}
                   <button type="button" class="btn btn-info">{{item.groups.last}}</button>
-                  
+
                 {% endif %}
-                
+
               </td>
                 <td>
                     <a href="{% url 'eduacionapp:editar' item.id %}" class="btn btn-primary btn-sm">Modificar Informacion</a>
@@ -67,38 +67,59 @@ Login
 <div class="card-deck card mb-3">
 <!-- Cosas que muestra para el alumno  -->
   {% if request.user.groups.all.0.name == "alumno" %}
-  <div class="card">
+  <div class="card" style="max-width: 18rem;"> {# el stile define que tan ancha puede ser la tarjerta, 286x180 la imagen#}
+  <img class="card-img-top" src="{% static 'images/bienvenido.png' %} "  alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Alumno</h5>
-      <p class="card-text">Bienvenido alumno a esta sesión.</p>
-      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">:)</a>
+      <h5 class="card-title">Eventos</h5>
+      <p class="card-text">Bienvenido,en este apartado se mostrarán los acontecimientos más recientes.</p>
+      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Entrar</a>
     </div>
   </div>
   <!-- Cosas que muestra para el profesor  -->
 {% elif request.user.groups.all.0.name == "profesor"%}
-    <div class="card">
+    <div class="card" style="max-width: 18rem;">
+    <img class="card-img-top" src="{% static 'images/bienvenido.png' %} "  alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Docente</h5>
       <p class="card-text">Bienvenido docente a esta sesión.</p>
-      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">:)</a>
+      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Entrar</a>
     </div>
   </div>
 {% endif %}
-  <div class="card">
+  <div class="card" style="max-width: 18rem;">
+      <img class="card-img-top" src="{% static 'images/moodle.png' %} "  alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Moodle</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-       <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Acceder</a>
+      <p class="card-text">Plataforma de aprendizaje diseñada para educacdores y estudiantes.</p>
+       <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Entrar</a>
     </div>
   </div>
-  <div class="card">
+  <div class="card" style="max-width: 18rem;">
+      <img class="card-img-top" src="{% static 'images/chamilo.png' %} "  alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Chamilo</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Acceder</a>
+      <p class="card-text">Plataforma de aprendizaje diseñada para educacdores y estudiantes.</p>
+      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Entrar</a>
     </div>
   </div>
 
+<div class="card" style="max-width: 18rem;">
+      <img class="card-img-top" src="{% static 'images/videollamadas.png' %} "  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Video llamadas</h5>
+      <p class="card-text">Sala de conferencias, en las que pudes unirte u organizar reuniones.</p>
+      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Entrar</a>
+    </div>
+  </div>
+
+<div class="card" style="max-width: 18rem;">
+      <img class="card-img-top" src="{% static 'images/gestiondocumental.png' %} "  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Gestion documental</h5>
+      <p class="card-text">Plataforma en la que puedes realizar tramites y guardar documentos.</p>
+      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Entrar</a>
+    </div>
+  </div>
 </div>
     {% endif %}
     {% endif %}
