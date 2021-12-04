@@ -23,8 +23,8 @@
                 <td>{{usua.groups.last}}</td>
                 <td>
                     <form  method="post" class="order-form">
-                <input class="btn btn-primary" type="submit" value="Estudiante" name="_estudiante" href="{% url 'eduacionapp:home' %}">
-                <input class="btn btn-success" type="submit" value="Profesor" href="{% url 'eduacionapp:home' %}">
+                <input class="btn btn-success" type="submit" value="Estudiante" name="_estudiante" href="{% url 'eduacionapp:home' %}">
+                <input class="btn btn-info" type="submit" value="Profesor" href="{% url 'eduacionapp:home' %}">
                 {% csrf_token %}
                 </form>
                 </td>
