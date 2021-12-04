@@ -21,6 +21,7 @@ Login
             <th>Apellido(s)</th>
             <th>Permiso</th>
             <th>Correo</th>
+            <th>Rol</th>
             <th>Acciones</th>
 
         </thead>
@@ -34,6 +35,17 @@ Login
                 <td>{{item.last_name}}</td>
                 <td>{{item.groups.last}}</td>
                 <td>{{item.email}}</td>
+                
+                <td>
+                {% if item.groups.all.0.name == "alumno" %}
+                  <button type="button" class="btn btn-success">{{item.groups.last}}</button>
+                  
+                  {% else %}
+                  <button type="button" class="btn btn-info">{{item.groups.last}}</button>
+                  
+                {% endif %}
+                
+              </td>
                 <td>
                     <a href="{% url 'eduacionapp:editar' item.id %}" class="btn btn-primary btn-sm">Modificar Informacion</a>
                     <a href="{% url 'eduacionapp:editar_permisos' item.id %}" class="btn btn-primary btn-sm">Modificar Permisos</a>
