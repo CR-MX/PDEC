@@ -25,6 +25,12 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
 
 {% block head %} {% endblock %}
+{# Parte del data table #}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+    <link rel="stylesheet" rel="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" rel="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+
+{# fin del data table #}
     </head>
     <body class="modal-body">
         <div>
@@ -38,6 +44,14 @@
             <p  class="small"> &copy; 2021 Ciencias de la Salud  </p>
         </footer>
     </footer>
+{#  seginda parte del tata table #}
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready( function () {
+                $('#tblUsu').DataTable();
+            } );
+        </script>
+
     </body>
 
 </html>
