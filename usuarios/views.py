@@ -58,7 +58,8 @@ def elimina_usuario(request, id):
     usua = User.objects.get(id=id)
     if request.method == "POST":
         usua.delete()
-        return redirect('/')
+        return redirect('eduacionapp:home')
+
     context = {'usua': usua}
     return render(request, 'delete.html', context)
 
