@@ -37,6 +37,8 @@ def Home(request):
     context = {'usuarios': usuarios}
     return render(request, 'home.html', context)
 
+def Landing(request):
+    return render(request, 'landing.html')
 
 
 class ListaUsuario(ListView):
