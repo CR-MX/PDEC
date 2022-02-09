@@ -40,6 +40,8 @@ def Home(request):
 def Landing(request):
     return render(request, 'landing.html')
 
+def Avisos(request):
+    return render(request, 'avisos.html')
 
 class ListaUsuario(ListView):
     model = User

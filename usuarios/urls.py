@@ -9,6 +9,7 @@ app_name='eduacionapp'
 urlpatterns = [
     path('home/', views.Home, name='home'),
     path('landing/', views.Landing, name='landing'),
+    path('avisos/', views.Avisos, name='avisos'),
     path('login/', views.Login.as_view(), name='login'),
     path('register/', views.Register.as_view(), name='register'),
     path('editar/<int:id>', views.editar_usuario, name='editar'),
