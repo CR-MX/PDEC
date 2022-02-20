@@ -7,93 +7,101 @@ Login
 {% load static %}
 
 {% block content %}
-    <!-- Cosas que muestra para el administrador  -->
-    {% if request.user.is_staff %}
-    <h1></h1>
-    <h2 class="app-page-title">  Lista de usuarios</h2>
-    <div class="app-card app-card-orders-table shadow-sm mb-5">
-    <div class="row">
+<br>
+<br>
+<br>
+<br>
+<!-- Cosas que muestra para el administrador  -->
+{% if request.user.is_staff %}
+<h1></h1>
+<h2 class="app-page-title"> Lista de usuarios</h2>
+<div class="app-card app-card-orders-table shadow-sm mb-5">
+  <div class="row">
     <div class="table-responsive">
-    <table  class="table table-striped  table-bordered" id="tblUsu" style="width:100%">
+      <table class="table table-striped  table-bordered" id="tblUsu" style="width:100%">
         <thead>
-            <th>Matricula</th>
-            <th>Nombre(s)</th>
-            <th>Apellido(s)</th>
-            <th>Correo</th>
-            <th>Rol</th>
-            <th>Acciones</th>
+          <th>Matricula</th>
+          <th>Nombre(s)</th>
+          <th>Apellido(s)</th>
+          <th>Correo</th>
+          <th>Rol</th>
+          <th>Acciones</th>
 
         </thead>
         <tbody>
-            {% for item in usuarios %}
-                {% if item.username != "admin" %}
-            <tr>
+          {% for item in usuarios %}
+          {% if item.username != "admin" %}
+          <tr>
 
-                <td>{{item.username}}</td>
-                <td>{{item.first_name}}</td>
-                <td>{{item.last_name}}</td>
-                <td>{{item.email}}</td>
+            <td>{{item.username}}</td>
+            <td>{{item.first_name}}</td>
+            <td>{{item.last_name}}</td>
+            <td>{{item.email}}</td>
 
-                <td>
-                {% if item.groups.all.0.name == "alumno" %}
-                  <button type="button" class="btn btn-success">{{item.groups.last}}</button>
+            <td>
+              {% if item.groups.all.0.name == "alumno" %}
+              <button type="button" class="btn btn-success">{{item.groups.last}}</button>
 
-                  {% else %}
-                  <button type="button" class="btn btn-info">{{item.groups.last}}</button>
+              {% else %}
+              <button type="button" class="btn btn-info">{{item.groups.last}}</button>
 
-                {% endif %}
+              {% endif %}
 
-              </td>
-                <td>
-                    <a href="{% url 'eduacionapp:editar' item.id %}" class="btn btn-primary btn-sm">Modificar Informacion</a>
-                    <a href="{% url 'eduacionapp:editar_permisos' item.id %}" class="btn btn-primary btn-sm">Modificar Permisos</a>
-                    <a href="{% url 'eduacionapp:borrar' item.id %}" class="btn btn-danger btn-sm">Eliminar</a>
-                </td>
-            </tr>
+            </td>
+            <td>
+              <a href="{% url 'eduacionapp:editar' item.id %}" class="btn btn-primary btn-sm">Modificar Informacion</a>
+              <a href="{% url 'eduacionapp:editar_permisos' item.id %}" class="btn btn-primary btn-sm">Modificar
+                Permisos</a>
+              <a href="{% url 'eduacionapp:borrar' item.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+          </tr>
 
 
-                {% endif %}
+          {% endif %}
 
-            {% endfor %}
+          {% endfor %}
         </tbody>
-    </table>
+      </table>
     </div>
-    </div>
+  </div>
 </div>
-    {% else %}
-    {% if user.is_authenticated %}
+{% else %}
+{% if user.is_authenticated %}
 <div class="card-deck card mb-3">
-<!-- Cosas que muestra para el alumno  -->
+  <!-- Cosas que muestra para el alumno  -->
   {% if request.user.groups.all.0.name == "alumno" %}
-  <div class="card" style="max-width: 18rem;"> {# el stile define que tan ancha puede ser la tarjerta, 286x180 la imagen#}
-  <img class="card-img-top" src="{% static 'images/bienvenido.png' %} "  alt="Card image cap">
+  <div class="card" style="max-width: 18rem;"> {# el stile define que tan ancha puede ser la tarjerta, 286x180 la
+    imagen#}
+    <img class="card-img-top" src="{% static 'images/bienvenido.png' %} " alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Eventos</h5>
       <p class="card-text">Bienvenido,en este apartado se mostrarán los acontecimientos más recientes.</p>
-      <a class="d-flex card-text justify-content-center mt-3 login_container" href="https://www.facebook.com/%C3%81rea-de-Ciencias-de-la-Salud-110339776102678/?ref=page_internalws">Entrar</a>
+      <a class="d-flex card-text justify-content-center mt-3 login_container"
+        href="https://www.facebook.com/%C3%81rea-de-Ciencias-de-la-Salud-110339776102678/?ref=page_internalws">Entrar</a>
     </div>
   </div>
   <!-- Cosas que muestra para el profesor  -->
-{% elif request.user.groups.all.0.name == "profesor"%}
-    <div class="card" style="max-width: 18rem;">
-    <img class="card-img-top" src="{% static 'images/bienvenido.png' %} "  alt="Card image cap">
+  {% elif request.user.groups.all.0.name == "profesor"%}
+  <div class="card" style="max-width: 18rem;">
+    <img class="card-img-top" src="{% static 'images/bienvenido.png' %} " alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Eventos</h5>
       <p class="card-text">Bienvenido,en este apartado se mostrarán los acontecimientos más recientes.</p>
-      <a class="d-flex card-text justify-content-center mt-3 login_container" href="https://www.facebook.com/%C3%81rea-de-Ciencias-de-la-Salud-110339776102678/?ref=page_internalws">Entrar</a>
+      <a class="d-flex card-text justify-content-center mt-3 login_container"
+        href="https://www.facebook.com/%C3%81rea-de-Ciencias-de-la-Salud-110339776102678/?ref=page_internalws">Entrar</a>
     </div>
   </div>
-{% endif %}
+  {% endif %}
   <div class="card" style="max-width: 18rem;">
-      <img class="card-img-top" src="{% static 'images/moodle.png' %} "  alt="Card image cap">
+    <img class="card-img-top" src="{% static 'images/moodle.png' %} " alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Moodle</h5>
       <p class="card-text">Plataforma de aprendizaje diseñada para educacdores y estudiantes.</p>
-       <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Entrar</a>
+      <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">Entrar</a>
     </div>
   </div>
   <div class="card" style="max-width: 18rem;">
-      <img class="card-img-top" src="{% static 'images/chamilo.png' %} "  alt="Card image cap">
+    <img class="card-img-top" src="{% static 'images/chamilo.png' %} " alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Chamilo</h5>
       <p class="card-text">Plataforma de aprendizaje diseñada para educacdores y estudiantes.</p>
@@ -101,8 +109,8 @@ Login
     </div>
   </div>
 
-<div class="card" style="max-width: 18rem;">
-      <img class="card-img-top" src="{% static 'images/videollamadas.png' %} "  alt="Card image cap">
+  <div class="card" style="max-width: 18rem;">
+    <img class="card-img-top" src="{% static 'images/videollamadas.png' %} " alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Video llamadas</h5>
       <p class="card-text">Sala de conferencias, en las que pudes unirte u organizar reuniones.</p>
@@ -110,8 +118,8 @@ Login
     </div>
   </div>
 
-<div class="card" style="max-width: 18rem;">
-      <img class="card-img-top" src="{% static 'images/gestiondocumental.png' %} "  alt="Card image cap">
+  <div class="card" style="max-width: 18rem;">
+    <img class="card-img-top" src="{% static 'images/gestiondocumental.png' %} " alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Gestion documental</h5>
       <p class="card-text">Plataforma en la que puedes realizar tramites y guardar documentos.</p>
@@ -119,7 +127,7 @@ Login
     </div>
   </div>
 </div>
-    {% endif %}
-    {% endif %}
+{% endif %}
+{% endif %}
 
 {% endblock %}
