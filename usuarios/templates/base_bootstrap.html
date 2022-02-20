@@ -2,56 +2,59 @@
 <html class="container1">
     <head>
         <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            crossorigin="anonymous">
-        <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css"
-            crossorigin="anonymous">
-
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-<link rel="stylesheet"
-            href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css"
-             crossorigin="anonymous">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"
-            crossorigin="anonymous"></script>
- <script
-          src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-          crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
-
-{% block head %} {% endblock %}
-{# Parte del data table #}
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
-    <link rel="stylesheet" rel="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" rel="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-
-{# fin del data table #}
+        <!-- tema y boostrap 4 online -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+                crossorigin="anonymous">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css"
+                crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css"
+                crossorigin="anonymous">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
+        <!-- fin tema y boostrap 4 -->
+        {% block head %} {% endblock %}
+        <!-- Data table online -->
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css" />
+            <link rel="stylesheet" rel="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+            <link rel="stylesheet" rel="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+        <!-- Fin Data table online -->
     </head>
+        <!-- Codigo java script nativo que usa boostrap -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+        <!-- fin Codigo java script nativo que usa boostrap  -->
+
     <body class="modal-body">
-        <div>
+        <header>
             {% block navbar %} {% endblock %}
-            <br>
-            <br>
-            <br>
-            {% block content %}{% endblock %}
-        </div>
-        <footer class="card-footer text-center text-white fixed-bottom" style="background-color: #222" >
-            <p  class="small"> &copy; 2021 Ciencias de la Salud  </p>
-        </footer>
-    </footer>
-{#  seginda parte del tata table #}
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+        </header>
+        <br>
+        <br>
+        <br>
+        {% block content %}{% endblock %}
+        <!-- pie de pagina  -->
+            <footer class="card-footer text-center text-white fixed-bottom" style="background-color: #222">
+                <p class="small"> &copy; 2021 Ciencias de la Salud </p>
+            </footer>
+        <!-- fin de pie de pagina  -->
+        <!-- dibujado de datatable -->
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
         <script type="text/javascript">
-            $(document).ready( function () {
+            $(document).ready(function () {
                 $('#tblUsu').DataTable();
-            } );
+            });
         </script>
-
+        <!-- fin dibujado de datatable -->
     </body>
-
 </html>
