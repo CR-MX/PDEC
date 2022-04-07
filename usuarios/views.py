@@ -12,6 +12,8 @@ from django.views.generic import ListView
 from django.shortcuts import render, redirect
 #importa los grupos que tienen diferentes permisos
 from django.contrib.auth.models import Group
+#Desde la otra aplicación
+from publication.models import Publication
 
 
 #Esta clase se utiliza para realizar el registro de un nuevo usuario en la plataforma web
@@ -38,7 +40,10 @@ def Home(request):
     return render(request, 'home.html', context)
 
 def Landing(request):
-    return render(request, 'landing.html')
+    article = Publication.objects.all()
+    context = {'article': article}
+
+    return render(request, 'landing.html',context)
 
 def Avisos(request):
     return render(request, 'avisos.html')

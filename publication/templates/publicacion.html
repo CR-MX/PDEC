@@ -1,0 +1,31 @@
+{% extends "base_us.html" %}
+{% block title %}
+{{article.name}}
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-8 blog-main">
+            <h3 class="pb-3 mb-4 font-italic border-bottom">
+                Area de ciencias de la salud 
+            </h3>
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{article.name}}</h2>
+                <p class="blog-post-meta">January 1, 2014 por <a href="#">{{article.author}}</a></p>
+
+                <p>{{article.description}}</p>
+                <hr>
+                <p>{{article.content1}}</p>
+                <p>{{article.content2}}</p>
+                <p>{{article.content3}}</p>
+
+
+            </div><!-- /.blog-post -->
+        </div><!-- /.row -->
+</main><!-- /.container -->
+{% endblock %}
