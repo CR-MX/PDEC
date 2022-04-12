@@ -40,8 +40,29 @@ def Home(request):
     return render(request, 'home.html', context)
 
 def Landing(request):
-    article = Publication.objects.all()
-    context = {'article': article}
+    # first section img rounded
+    f_sec = Publication.objects.all().filter(section='F')
+    # deliminta el numero de publicaciones
+    f_sec = f_sec[0:3]
+    # second section img rectangle speccific  1, 2, 3
+    s_sec1 = Publication.objects.all().filter(section='1')
+    s_sec1 = s_sec1[0:1]
+    s_sec2 = Publication.objects.all().filter(section='2')
+    s_sec2 = s_sec2[0:1]
+    s_sec3 = Publication.objects.all().filter(section='3')
+    s_sec3 = s_sec3[0:1]
+    # third section img square
+    t_sec = Publication.objects.all().filter(section='T')
+    t_sec = t_sec[0:3]
+
+
+    context = {
+                'f_sec': f_sec,
+                's_sec1': s_sec1,
+                's_sec2': s_sec2,
+                's_sec3': s_sec3,
+                't_sec': t_sec,
+                }
 
     return render(request, 'landing.html',context)
 

@@ -23,10 +23,24 @@
                 <p>{{article.content1}}</p>
                 <p>{{article.content2}}</p>
                 <p>{{article.content3}}</p>
-                <hr>
-                <p>background_pic</p>
-                <p>{{article.background_pic.url}}</p>
+                
+                {% if article.background_pic  %}
+                    <hr>
+                    <p>background_pic</p>
+                    <img class='card-img' src="{{article.background_pic.url}}">
+                {% endif %}
 
+                {% if article.publication_pic  %}
+                    <hr>
+                    <p>publication_pic</p>
+                    <img class='card-img' src="{{article.publication_pic.url}}">
+                {% endif %}
+                
+                {% if article.miniature_pic  %}
+                    <hr>
+                    <p>miniature_pic</p>
+                    <img class='card-img' src="{{article.miniature_pic.url}}">
+                {% endif %}
 
 
             </div><!-- /.blog-post -->

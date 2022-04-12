@@ -12,3 +12,9 @@ python manage.py initmigrations
 
 /migrar
 python manage.py migrate
+
+/migrar de nuevo base de datos si no detecta cambios
+/borramos dbsqlite3 y migrations 
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py createsuperuser

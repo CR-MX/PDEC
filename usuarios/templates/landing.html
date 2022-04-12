@@ -61,110 +61,96 @@ landing
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
   <div class="container marketing">
-
-    <!-- Three columns of text below the carousel -->
+    
+    <!-- Primera seccion de imagenes redondas -->
     <div class="row">
-      <div class="col-lg-4">
-        <img class="rounded-circle"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-          alt="Generic placeholder image" width="140" height="140">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
-          vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus
-          magna.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <img class="rounded-circle"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-          alt="Generic placeholder image" width="140" height="140">
-        <h2>Heading</h2>
-        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis
-          consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
-        </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <img class="rounded-circle"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-          alt="Generic placeholder image" width="140" height="140">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
-          felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-          massa justo sit amet risus.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+      {% for f_section in f_sec %}
+        <div class="col-lg-4">
+            {% if f_section.miniature_pic  %}
+              <img class="rounded-circle"
+                src="{{f_section.miniature_pic.url}}"
+                alt="Generic placeholder image" width="140" height="140">
+            {% endif %}
 
-
-    <!-- START THE FEATURETTES -->
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span>
-        </h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-          semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-          commodo.</p>
-      </div>
-      <div class="col-md-5">
-        <img class="featurette-image img-fluid mx-auto" src="{% static 'images/tamano3.png' %}"
-          alt="Generic placeholder image">
-      </div>
+          <h2>{{f_section.title}}</h2>
+          <p>{{f_section.description}}</p>
+          <p><a class="btn btn-secondary" href="#" role="button">Visiar &raquo;</a></p>
+        </div>
+      {% endfor %}
     </div>
+    <!-- /Termina Primera seccion de imagenes redondas -->
+
+
+    <!-- Segunda seccion las cuales son fijas -->
 
     <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-          semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-          commodo.</p>
+    {% for s1_section in s_sec1 %}
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{s1_section.title}}</h2>
+          <p class="lead">{{s1_section.description}}</p>
+        </div>
+        <div class="col-md-5">
+          {% if s1_section.miniature_pic  %}
+            <img class="featurette-image img-fluid mx-auto" src="{{s1_section.miniature_pic.url}}"
+              alt="Generic placeholder image">
+          {% endif %}
+        </div>
       </div>
-      <div class="col-md-5 order-md-1">
-        <img class="featurette-image img-fluid mx-auto" src="{% static 'images/tamano3.png' %}"
-          alt="Generic placeholder image">
-      </div>
-    </div>
-
+    {% endfor %}
     <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod
-          semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-          commodo.</p>
+    {% for s2_section in s_sec2 %}
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">{{s2_section.title}}</h2>
+          <p class="lead">{{s2_section.description}}</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          {% if s2_section.miniature_pic  %}
+            <img class="featurette-image img-fluid mx-auto" src="{{s2_section.miniature_pic.url}}"
+              alt="Generic placeholder image">
+          {% endif %}
+        </div>
       </div>
-      <div class="col-md-5">
-        <img class="featurette-image img-fluid mx-auto" src="{% static 'images/tamano3.png' %}"
-          alt="Generic placeholder image">
-      </div>
-    </div>
-
+    {% endfor %}
     <hr class="featurette-divider">
-    <!-- /END THE FEATURETTES -->
-  </div><!-- /.container -->
+    {% for s3_section in s_sec3 %}
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{s3_section.title}}</h2>
+          <p class="lead">{{s3_section.description}}</p>
+        </div>
+        <div class="col-md-5">
+          {% if s3_section.miniature_pic  %}
+            <img class="featurette-image img-fluid mx-auto" src="{{s3_section.miniature_pic.url}}"
+              alt="Generic placeholder image">
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+    <hr class="featurette-divider">
+    <!-- /termina segunda seccion -->
+  </div>
+  <!-- Tercera seccion -->
   <div class="container">
     <h2 class="app-page-title"> Notas y noticias </h2>
 
     <div class="row">
-      {% for x in article %}
+      {% for t_section in t_sec %}
         <div class="col-md-4">
           <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src="{% static 'images/tamano3.png' %}"
+            {% if t_section.miniature_pic  %}
+            <img class="card-img-top" src="{{t_section.miniature_pic.url}}"
               alt="Card image cap">
+            {% endif %}
             <div class="card-body">
-              <h5 class="card-title">{{x.name}}</h5>
-              <p class="card-text">{{x.description}}.</p>
+              <h5 class="card-title">{{t_section.name}}</h5>
+              <p class="card-text">{{t_section.description}}.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-primary">Visitar</button>
                 </div>
-                <small class="text-muted blog-post-meta">January 1, 2014 por <a href="#">{{x.author}}</a></small>
+                <small class="text-muted blog-post-meta">{{t_section.id}}January 1, 2014 por <a href="#">{{t_section.author}}</a></small>
               </div>
             </div>
           </div>
@@ -172,9 +158,7 @@ landing
       {% endfor %}
     </div>
   </div>
-
-
-
+  <!-- /Termina Tercera seccion -->
 
 </main>
 
