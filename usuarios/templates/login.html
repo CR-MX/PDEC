@@ -21,8 +21,7 @@ Login
     <br>
     <img src="{% static 'images/uaz.jpg' %} " class="card-img   d-flex justify-content-center" alt="Card image cap">
     <br>
-    <form method="post">
-        {% csrf_token %}
+    <form method="post">{% csrf_token %}
         <div class="input-group mb-3 justify-content-center">
             <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
