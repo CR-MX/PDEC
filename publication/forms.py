@@ -5,7 +5,7 @@ from .models import Publication
 class PublicationForm(forms.ModelForm):
     class Meta:
         model = Publication
-        fields = ('title', 'author', 'description', 'content1', 'content2', 'content3', 'background_pic', 'publication_pic', 'miniature_pic')
+        fields = ('title', 'author', 'description', 'content1', 'content2', 'content3', 'background_pic', 'publication_pic', 'miniature_pic', 'section')
         
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
