@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from .forms import PublicationForm
+from .forms import PublicationForm,CarruselForm
 
 # from publication import Publications
-from publication.models import Publication
+from publication.models import Publication,Carousel
 
 
 def Publicacion(request, id):
@@ -25,3 +25,14 @@ def crearPublicacion(request):
     else:
         form = PublicationForm()
     return render(request, 'crearPublicacion.html', {'form': form})
+
+def crearCarrusel(request):
+    if request.method == "POST":
+        form = CarruselForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return render(request, 'landing.html')
+    else:
+        form = CarruselForm()
+    return render(request, 'crearCarrusel.html', {'form': form})

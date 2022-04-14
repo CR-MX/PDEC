@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Publication
+from .models import Publication,Carousel
 
 class PublicationForm(forms.ModelForm):
     class Meta:
@@ -15,4 +15,15 @@ class PublicationForm(forms.ModelForm):
             'content2': forms.Textarea(attrs={'class': 'form-control'}),
             'content3': forms.Textarea(attrs={'class': 'form-control'}),
         }
-        
+
+class CarruselForm(forms.ModelForm):
+    class Meta:
+        model = Carousel
+        fields = ('title', 'description', 'carousel_pic', 'ordenPublication', 'showbuton', 'nameButon', 'linkButon')
+
+        widgets = {
+                'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+                'description': forms.TextInput(attrs={'class': 'form-control'}),
+                'nameButon': forms.TextInput(attrs={'class': 'form-control'}),
+                'linkButon': forms.TextInput(attrs={'class': 'form-control'}),
+            }
