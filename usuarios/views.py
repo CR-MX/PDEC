@@ -13,7 +13,7 @@ from django.shortcuts import render, redirect
 #importa los grupos que tienen diferentes permisos
 from django.contrib.auth.models import Group
 #Desde la otra aplicación
-from publication.models import Publication
+from publication.models import Carousel, Publication
 
 
 #Esta clase se utiliza para realizar el registro de un nuevo usuario en la plataforma web
@@ -55,6 +55,10 @@ def Landing(request):
     t_sec = Publication.objects.all().filter(section='T')
     t_sec = t_sec[0:3]
 
+    # carousel section 
+    c_sec_1 = Carousel.objects.all().filter(ordenPublication='1')[0:1]
+    c_sec_2 = Carousel.objects.all().filter(ordenPublication='2')[0:1]
+    c_sec_3 = Carousel.objects.all().filter(ordenPublication='3')[0:1]
 
     context = {
                 'f_sec': f_sec,
@@ -62,7 +66,10 @@ def Landing(request):
                 's_sec2': s_sec2,
                 's_sec3': s_sec3,
                 't_sec': t_sec,
-                }
+                'c_sec_1': c_sec_1,
+                'c_sec_2': c_sec_2,
+                'c_sec_3': c_sec_3,
+    }
 
     return render(request, 'landing.html',context)
 
