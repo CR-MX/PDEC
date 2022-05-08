@@ -36,3 +36,11 @@ def crearCarrusel(request):
     else:
         form = CarruselForm()
     return render(request, 'crearCarrusel.html', {'form': form})
+
+def allPublications(request):
+    # all publications sort by desc
+    all_publications = Publication.objects.all().filter(section='T')
+    context = {
+                'all_publications': all_publications,
+    }
+    return render(request, 'allPublications.html',context)

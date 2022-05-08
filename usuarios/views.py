@@ -43,7 +43,7 @@ def Landing(request):
     # first section img rounded
     f_sec = Publication.objects.all().filter(section='F')
     # deliminta el numero de publicaciones
-    f_sec = f_sec[0:3]
+    f_sec = f_sec[0:6]
     # second section img rectangle speccific  1, 2, 3
     s_sec1 = Publication.objects.all().filter(section='1')
     s_sec1 = s_sec1[0:1]

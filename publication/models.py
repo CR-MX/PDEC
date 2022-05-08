@@ -1,6 +1,7 @@
 from pickle import TRUE
 from turtle import title
 from django.db import models
+from django.utils import timezone
 
 class Publication(models.Model):
     
@@ -22,6 +23,7 @@ class Publication(models.Model):
                 ('T','Third_Section')
                 )
     section = models.CharField(max_length=1, choices=section_p, blank=True, default='n')
+    published = models.DateField(auto_now_add=True)
 
     def __str__(self) :
         return "(No.%i) %s by %s" % (self.id, self.title, self.author)
