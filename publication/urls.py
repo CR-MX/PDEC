@@ -7,7 +7,7 @@ from . import views
 
 app_name='publication_app'
 urlpatterns = [
-    path('<int:id>/', views.Publicacion, name='publicacion'),
+    path('<int:id>/', views.Publicacion, name='publication'),
     path('crearPublicacion/', views.crearPublicacion, name='crearPublicacion'),
     path('crearCarrusel/', views.crearCarrusel, name='crearCarrusel'),
     path('all/', views.allPublications, name='allPublications'),

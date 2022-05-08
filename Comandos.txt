@@ -18,3 +18,4 @@ python manage.py migrate
 python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py createsuperuser
+https://getbootstrap.com/docs/4.0/examples/blog/#
