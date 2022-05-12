@@ -11,7 +11,7 @@ class Publication(models.Model):
     content1 = models.TextField(max_length=1000)
     content2 = models.TextField(max_length=1000, null=True, blank=True)
     content3 = models.TextField(max_length=1000, null=True, blank=True)
-    background_pic = models.ImageField(null=True,blank=True)
+    background_pic = models.ImageField(null=True,blank=True)#este es el que se va a borrar
     publication_pic = models.ImageField(null=True,blank=True)
     miniature_pic = models.ImageField(null=True,blank=True)
     section_p =(
@@ -24,6 +24,9 @@ class Publication(models.Model):
                 )
     section = models.CharField(max_length=1, choices=section_p, blank=True, default='n')
     published = models.DateField(auto_now_add=True)
+    file1 = models.FileField(null=True,blank=True)
+    file2 = models.FileField(null=True,blank=True)
+    file3 = models.FileField(null=True,blank=True)
 
     def __str__(self) :
         return "(No.%i) %s by %s" % (self.id, self.title, self.author)

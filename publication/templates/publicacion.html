@@ -1,6 +1,6 @@
 {% extends "base_us.html" %}
 {% block title %}
-{{article.name}}
+{{article.title}}
 {% endblock %}
 
 {% block content %}
@@ -8,42 +8,92 @@
 <br>
 <br>
 <br>
-<main role="main" class="container">
+<div class="container">
     <div class="row">
-        <div class="col-md-8 blog-main">
-            <h3 class="pb-3 mb-4 font-italic border-bottom">
-                Area de ciencias de la salud 
-            </h3>
-            <div class="blog-post">
-                <h2 class="blog-post-title">{{article.name}}</h2>
-                <p class="blog-post-meta">January 1, 2014 por <a href="#">{{article.author}}</a></p>
-
-                <p>{{article.description}}</p>
-                <hr>
-                <p>{{article.content1}}</p>
-                <p>{{article.content2}}</p>
-                <p>{{article.content3}}</p>
-                
-                {% if article.background_pic  %}
+        <div class="col-lg-8">
+            <article>
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h1 class="fw-bolder mb-1">{{article.title}}</h1>
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">Publicado el {{article.published}} por {{article.author}}
+                    </div>
+                </header>
+                <figure class="mb-4">
+                    {% if article.publication_pic %}
+                    <img class="img-fluid rounded bg-image hover-zoom" src="{{article.publication_pic.url}}">
+                    {% else %}
+                    <img class="img-fluid rounded" src=" https://dummyimage.com/900x400/ced4da/6c757d.jpg">
+                    {% endif %}
+                </figure>
+                <section class="mb-5">
+                    <p class="fs-5 mb-4">{{article.content1}}</p>
+                    {% if article.content2 %}
                     <hr>
-                    <p>background_pic</p>
-                    <img class='card-img' src="{{article.background_pic.url}}">
-                {% endif %}
-
-                {% if article.publication_pic  %}
+                    <p class="fs-5 mb-4">{{article.content2}}</p>
+                    {% endif %}
+                    {% if article.content2 %}
                     <hr>
-                    <p>publication_pic</p>
-                    <img class='card-img' src="{{article.publication_pic.url}}">
-                {% endif %}
-                
-                {% if article.miniature_pic  %}
-                    <hr>
-                    <p>miniature_pic</p>
-                    <img class='card-img' src="{{article.miniature_pic.url}}">
-                {% endif %}
+                    <p class="fs-5 mb-4">{{article.content3}}</p>
+                    {% endif %}
+                </section>
+                <section class="mb-5">
+                    {% if article.file1 or article.file2 or article.file3 %}
+                        <hr>
+                        <p>Archivos adjuntos</p>
+                        {% if article.file1 %}
+                            <a class="fs-5 mb-4" href="/imagesPublications/{{article.file1}}" target="_blank">{{article.file1}}</a>
+                        {% endif %}
+                        {% if article.file2 %}
+                            <a class="fs-5 mb-4" href="/imagesPublications/{{article.file2}}" target="_blank">{{article.file2}}</a>
+                        {% endif %}
+                        {% if article.file3 %}
+                            <a class="fs-5 mb-4" href="/imagesPublications/{{article.file3}}" target="_blank">{{article.file3}}</a>
+                        {% endif %}
+                    {% endif %}
+        
+                </section>
 
 
-            </div><!-- /.blog-post -->
-        </div><!-- /.row -->
-</main><!-- /.container -->
-{% endblock %}
+
+        </div><!-- /.blog-post -->
+        </article>
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-header">Search</div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search">
+                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">Categories</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">Web Design</a></li>
+                                <li><a href="#!">HTML</a></li>
+                                <li><a href="#!">Freebies</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#!">JavaScript</a></li>
+                                <li><a href="#!">CSS</a></li>
+                                <li><a href="#!">Tutorials</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">Descripción</div>
+                <div class="card-body">{{article.description}}</div>
+            </div>
+        </div>
+    </div><!-- /.row -->
+    {% endblock %}
