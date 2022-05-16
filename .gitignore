@@ -16,3 +16,7 @@ educacioncuaz/__pycache__/urls.cpython-39.pyc
 educacioncuaz/__pycache__/settings.cpython-39.pyc
 educacioncuaz/__pycache__/__init__.cpython-39.pyc
 educacioncuaz/__pycache__/
+venv/
+usuarios/__pycache__/
+static/imagesPublications/
+
