@@ -1,0 +1,43 @@
+{% extends "base_us.html" %}
+{% block title %}
+Publicaciones
+
+{% endblock %}
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 font-italic">administrador de publicaciones</h1>
+        </div>
+    </div>
+
+    {% for all_publications in all_publications %}
+            <div class="card border-secondary mb-3 ">
+                {% if all_publications.miniature_pic %}
+                <img class="card-img-top border-primary" src="{{all_publications.miniature_pic.url}}" width="700"
+                    height="300">
+
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">{{all_publications.title}}</h5>
+                    <p class="card-text">{{all_publications.description}}</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago <a
+                                href="#">{{all_publications.author}}</a></small></p>
+                    <a href="{% url 'publication_app:edicionPublication' all_publications.id %}" class="btn btn-outline-primary ">Editar</a>
+                    <a href="#" class="btn btn-outline-primary ">Eliminar</a>
+                </div>
+            </div>
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}

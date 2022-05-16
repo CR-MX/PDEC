@@ -1,0 +1,76 @@
+{% extends "base_us.html" %}
+{% block title %}
+Escuelas
+{% endblock %}
+'', '', '', '', '', '', 'linkButon'
+{% block content %}
+<br>
+<br>
+<br>
+<div class="container card mb-3" style="width: 30rem;">
+    <div class="sign-form ">
+        <br>      
+        <form method="post"> {% csrf_token %}
+            <h1>Registro de escuelas</h1>
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                    <span class="input-group-text">Unidad Académica:</span>
+                </div>
+                {{ form.UnidadAcademica}}
+            </div>
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                    <span class="input-group-text">Carrera:</span>
+                </div>
+                {{ form.nombreCarrera}}
+            </div>
+
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                    <span class="input-group-text">Descripción:</span>
+                </div>
+                {{ form.description}}
+            </div>
+
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                    <span class="input-group-text">Dirección:</span>
+                </div>
+                {{ form.direction}}
+            </div>
+            
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                    <span class="input-group-text">Sitio web:</span>
+                </div>
+                {{ form.urlSite}}
+            </div>
+
+            <div class="input-group mb-3 ">
+                
+                <div class="input-group-append">
+                    <br>
+                    <span class="input-group-text">Logo de carrera:</span>
+                </div>
+                {{ form.publication_pic}}
+            </div>
+
+            <div class="input-group mb-3 ">
+                
+                <div class="input-group-append">
+                    <br>
+                    <span class="input-group-text">Miniatura logo de carrera:</span>
+                </div>
+                {{ form.miniature_pic}}
+            </div>
+            
+            <div class="d-flex justify-content-center mt-3 login_container">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Crear Escuela</button>
+            </div>
+        </form>
+<br>
+<br>
+<br>
+    </div>
+</div>
+{% endblock %}

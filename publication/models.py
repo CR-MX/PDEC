@@ -51,3 +51,19 @@ class Carousel(models.Model):
     linkButon = models.TextField(max_length=500, null=True, blank=True)
     def __str__(self) :
         return "(No.%i) %s" % (self.id, self.title)
+
+class Schools(models.Model):
+     UnidadAcademica = models.CharField(max_length=250)
+     nombreCarrera = models.CharField(max_length=250)
+     description = models.CharField(max_length=500, null=True, blank=True)
+     direction=models.CharField(max_length=250)
+     urlSite = models.CharField(max_length=250)
+     publication_pic = models.ImageField(null=True,blank=True)
+     miniature_pic = models.ImageField(null=True,blank=True)
+     visible =(
+                ('A','Activado'),
+                ('D','Desactivado')
+                )
+
+     def __str__(self) :
+        return "(No.%i) %s" % (self.id, self.nombreCarrera)
