@@ -31,7 +31,7 @@ class CarruselForm(forms.ModelForm):
 class SchoolsForm(forms.ModelForm):
     class Meta:
         model = Schools
-        fields = ('UnidadAcademica', 'nombreCarrera', 'description', 'direction', 'urlSite', 'publication_pic', 'miniature_pic')
+        fields = "__all__"
 
         widgets = {
                 'UnidadAcademica': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),

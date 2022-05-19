@@ -64,6 +64,15 @@ def edicionPublication(request, id):
     context = {'article': form}
     return render(request, 'editarPublicacion.html', context)
 
+def eliminaPublicacion(request, id):
+    publication = Publication.objects.get(id=id)
+    if request.method == "POST":
+        publication.delete()
+        return redirect('publication_app:publicationAdmin')
+
+    context = {'publication': publication}
+    return render(request, 'eliminarPublicacion.html', context)
+
 def carruselAdmin(request):
     # all publications sort by desc
     all_carrusels = Carousel.objects.all()
@@ -86,10 +95,18 @@ def edicionCarrusel(request, id):
     print(context)
     return render(request, 'editarCarrusel.html', context)
 
+def eliminaCarrusel(request, id):
+    carrusel = Carousel.objects.get(id=id)
+    if request.method == "POST":
+        carrusel.delete()
+        return redirect('publication_app:carruselAdmin')
+
+    context = {'carrusel': carrusel}
+    return render(request, 'eliminarCarrusel.html', context)
+
 def crearEscuela(request):
     if request.method == "POST":
         form = SchoolsForm(request.POST, request.FILES)
-        print(form);
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
@@ -97,3 +114,44 @@ def crearEscuela(request):
     else:
         form = SchoolsForm()
     return render(request, 'crearEscuela.html', {'form': form})
+
+
+def escuelaAdmin(request):
+    # all publications sort by desc
+    all_schools = Schools.objects.all()
+    context = {
+                'all_schools': all_schools,
+    }
+    return render(request, 'escuelaAdmin.html',context)
+
+
+def edicionEscuela(request, id):
+    article =Schools.objects.get(id=id)
+    #print(article)
+    form = SchoolsForm(instance=article)
+    #print(form)
+    if request.method == 'POST':
+        form = SchoolsForm(request.POST, instance=article)
+        if form.is_valid():
+            form.save()
+            return redirect('eduacionapp:home')
+    context = {'form': form}
+    print(context)
+    return render(request, 'editarEscuelas.html', context)
+
+def obtenerEscuela(request, id):
+    article = Schools.objects.get(id=id)
+    context = {'article': article}
+    #print(context)
+    # article = Publication.objects.all()
+    # print(public)
+    return render(request, 'schoolView.html', context)
+
+def eliminaEscuela(request, id):
+    school = Schools.objects.get(id=id)
+    if request.method == "POST":
+        school.delete()
+        return redirect('eduacionapp:home')
+
+    context = {'school': school}
+    return render(request, 'eliminarEscuela.html', context)

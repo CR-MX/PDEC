@@ -10,7 +10,7 @@ Escuelas
 <div class="container card mb-3" style="width: 30rem;">
     <div class="sign-form ">
         <br>      
-        <form method="post"> {% csrf_token %}
+        <form enctype="multipart/form-data" method="post" class="post-form"> {% csrf_token %}
             <h1>Registro de escuelas</h1>
             <div class="input-group mb-3 ">
                 <div class="input-group-append">
@@ -47,19 +47,15 @@ Escuelas
             </div>
 
             <div class="input-group mb-3 ">
-                
                 <div class="input-group-append">
-                    <br>
-                    <span class="input-group-text">Logo de carrera:</span>
+                    <span input type="file" >Logo de carrera</span>
                 </div>
                 {{ form.publication_pic}}
             </div>
 
             <div class="input-group mb-3 ">
-                
                 <div class="input-group-append">
-                    <br>
-                    <span class="input-group-text">Miniatura logo de carrera:</span>
+                    <span input type="file" >Miniatura logo de carrera:</span>
                 </div>
                 {{ form.miniature_pic}}
             </div>

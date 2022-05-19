@@ -90,9 +90,9 @@ landing
                 alt="Generic placeholder image" width="140" height="140">
             {% endif %}
 
-          <h2>{{f_section.title}}</h2>
+          <h2>{{f_section.nombreCarrera}}</h2>
           <p>{{f_section.description}}</p>
-          <p><a class="btn btn-secondary" href="#" role="button">Visitar &raquo;</a></p>
+          <p><a class="btn btn-secondary" href="{% url 'publication_app:schoolView' f_section.id %}" role="button">Visitar &raquo;</a></p>
         </div>
       {% endfor %}
     </div>

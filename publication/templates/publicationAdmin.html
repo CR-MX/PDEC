@@ -32,7 +32,7 @@ Publicaciones
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago <a
                                 href="#">{{all_publications.author}}</a></small></p>
                     <a href="{% url 'publication_app:edicionPublication' all_publications.id %}" class="btn btn-outline-primary ">Editar</a>
-                    <a href="#" class="btn btn-outline-primary ">Eliminar</a>
+                    <a href="{% url 'publication_app:eliminaPublicacion' all_publications.id %}" class="btn btn-outline-primary ">Eliminar</a>
                 </div>
             </div>
     {% endfor %}

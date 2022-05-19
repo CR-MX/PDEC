@@ -1,0 +1,40 @@
+{% extends "base_us.html" %}
+{% block title %}
+Publicaciones
+
+{% endblock %}
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 font-italic">administrador de Escuelas</h1>
+        </div>
+    </div>
+
+    {% for all_schools in all_schools %}
+            <div class="card border-secondary mb-3 ">
+                {% if all_schools.publication_pic %}
+                <img class="card-img-top border-primary" src="{{all_schools.publication_pic.url}}" width="700"
+                    height="300">
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">{{all_schools.nombreCarrera}}</h5>
+                    <p class="card-text">{{all_schools.UnidadAcademica}}</p>
+                    <a href="{% url 'publication_app:edicionEscuela' all_schools.id %}" class="btn btn-outline-primary ">Editar</a>
+                    <a href="{% url 'publication_app:eliminaEscuela' all_schools.id %}" class="btn btn-outline-primary ">Eliminar</a>
+                </div>
+            </div>
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}
