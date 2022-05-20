@@ -26,17 +26,17 @@ Publicaciones
                     <td>{{item.author}}</td>
                     <td>{{item.published}}</td>
                     <td>
-                        <a type="button" href = "{% url 'publication_app:publication' item.id %}" class = "btn btn-outline-success">ver</a>
-                        <a type="button" href = "{% url 'publication_app:edicionPublication' item.id %}" class = "btn btn-outline-primary">Editar</a>
-                        <a type="button" href = "{% url 'publication_app:eliminaPublicacion' item.id %}" class = "btn btn-outline-danger" >Eliminar</a>
+                        <a type="button" class="btn btn-primary" href = "{% url 'publication_app:publication' item.id %}" class = "btn btn-outline-success">ver</a>
+                        <a type="button" class="btn btn-success" href = "{% url 'publication_app:edicionPublication' item.id %}" class = "btn btn-outline-primary">Editar</a>
+                        <a type="button" class="btn btn-danger" href = "{% url 'publication_app:eliminaPublicacion' item.id %}" class = "btn btn-outline-danger" >Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-    <a type="button" href="{% url 'publication_app:adminCenter' %}" class="btn btn-outline-primary">Centro de administración</a>
-    <a type="button" href="{% url 'publication_app:crearPublicacion' %}" class="btn btn-outline-success">Crear Publicación</a>
+    <a type="button" class="btn btn-primary" href="{% url 'publication_app:adminCenter' %}" class="btn btn-outline-primary">Centro de administración</a>
+    <a type="button" class="btn btn-success" href="{% url 'publication_app:crearPublicacion' %}" class="btn btn-outline-success">Crear Publicación</a>
 
 </div>
 {% endblock %}

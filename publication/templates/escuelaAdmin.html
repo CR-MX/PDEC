@@ -25,17 +25,17 @@ Carreras
                     <td>{{item.nombreCarrera}}</td>
                     <td>{{item.UnidadAcademica}}</td>
                     <td>
-                        <a type="button" href="{% url 'publication_app:schoolView' item.id %}" class = "btn btn-outline-success">ver</a>
-                        <a type="button" href="{% url 'publication_app:edicionEscuela' item.id %}" class="btn btn-outline-primary ">Editar</a>
-                        <a type="button" href="{% url 'publication_app:eliminaEscuela' item.id %}" class="btn btn-outline-danger">Eliminar</a>
+                        <a type="button" class="btn btn-primary" href="{% url 'publication_app:schoolView' item.id %}" class = "btn btn-outline-success">ver</a>
+                        <a type="button" class="btn btn-success" href="{% url 'publication_app:edicionEscuela' item.id %}" class="btn btn-outline-primary ">Editar</a>
+                        <a type="button" class="btn btn-danger" href="{% url 'publication_app:eliminaEscuela' item.id %}" class="btn btn-outline-danger">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-    <a type="button" href="{% url 'publication_app:adminCenter' %}" class="btn btn-outline-primary">Centro de administración</a>
-    <a type="button" href="{% url 'publication_app:crearEscuela' %}" class="btn btn-outline-success">Crear unidad académica</a>
+    <a type="button" class="btn btn-primary"  href="{% url 'publication_app:adminCenter' %}" class="btn btn-outline-primary">Centro de administración</a>
+    <a type="button" class="btn btn-success" href="{% url 'publication_app:crearEscuela' %}" class="btn btn-outline-success">Crear unidad académica</a>
 
 </div>
 {% endblock %}
