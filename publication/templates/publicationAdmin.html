@@ -18,7 +18,6 @@ Publicaciones
                 <th>Autor</th>
                 <th>Creacion</th>
                 <th>Acciones</th>
-
             </thead>
             <tbody>
                 {% for item in all_publications %}
@@ -27,8 +26,9 @@ Publicaciones
                     <td>{{item.author}}</td>
                     <td>{{item.published}}</td>
                     <td>
-                        <a type="button" href="{% url 'publication_app:edicionPublication' item.id %}" class="btn btn-outline-primary ">Editar</a>
-                        <a type="button" href="{% url 'publication_app:eliminaPublicacion' item.id %}" class="btn btn-outline-danger">Eliminar</a>
+                        <a type="button" href = "{% url 'publication_app:publication' item.id %}" class = "btn btn-outline-success">ver</a>
+                        <a type="button" href = "{% url 'publication_app:edicionPublication' item.id %}" class = "btn btn-outline-primary">Editar</a>
+                        <a type="button" href = "{% url 'publication_app:eliminaPublicacion' item.id %}" class = "btn btn-outline-danger" >Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}

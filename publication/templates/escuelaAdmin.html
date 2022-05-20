@@ -25,6 +25,7 @@ Carreras
                     <td>{{item.nombreCarrera}}</td>
                     <td>{{item.UnidadAcademica}}</td>
                     <td>
+                        <a type="button" href="{% url 'publication_app:schoolView' item.id %}" class = "btn btn-outline-success">ver</a>
                         <a type="button" href="{% url 'publication_app:edicionEscuela' item.id %}" class="btn btn-outline-primary ">Editar</a>
                         <a type="button" href="{% url 'publication_app:eliminaEscuela' item.id %}" class="btn btn-outline-danger">Eliminar</a>
                     </td>

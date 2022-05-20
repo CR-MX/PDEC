@@ -20,7 +20,9 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="{{article.publication_pic.url}}" alt="Admin" class="rounded-circle" width="150">
+                    {% if article.publication_pic  %}
+                      <img src="{{article.publication_pic.url}}" alt="Admin" class="rounded-circle" width="150">
+                    {% endif %}
                   </div>
                 </div>
               </div>
