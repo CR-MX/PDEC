@@ -4,6 +4,7 @@ from .forms import PublicationForm,CarruselForm, SchoolsForm
 # from publication import Publications
 from publication.models import Publication,Carousel,Schools
 
+from django.views.generic import ListView
 
 def Publicacion(request, id):
     # print(id ,args,kwargs)
