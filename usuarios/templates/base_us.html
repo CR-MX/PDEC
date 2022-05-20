@@ -1,12 +1,6 @@
 {% extends "base_bootstrap.html" %}
 {% block navbar %}
-.logo-image{
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-top: -6px;
-}
+
 {% load static %}
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #001447">
   {% if user.is_authenticated %}
