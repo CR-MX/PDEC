@@ -110,8 +110,10 @@ landing
         </div>
         <div class="col-md-5">
           {% if s1_section.miniature_pic  %}
+            <a href="{% url 'publication_app:publication' s1_section.id %}">
             <img class="featurette-image img-fluid mx-auto" src="{{s1_section.miniature_pic.url}}"
-              alt="Generic placeholder image">
+              alt="Generic placeholder image" >
+            </a>
           {% endif %}
         </div>
       </div>
@@ -125,8 +127,10 @@ landing
         </div>
         <div class="col-md-5 order-md-1">
           {% if s2_section.miniature_pic  %}
+          <a href="{% url 'publication_app:publication' s2_section.id %}">
             <img class="featurette-image img-fluid mx-auto" src="{{s2_section.miniature_pic.url}}"
               alt="Generic placeholder image">
+            </a>
           {% endif %}
         </div>
       </div>
@@ -140,8 +144,10 @@ landing
         </div>
         <div class="col-md-5">
           {% if s3_section.miniature_pic  %}
+          <a href="{% url 'publication_app:publication' s3_section.id %}">
             <img class="featurette-image img-fluid mx-auto" src="{{s3_section.miniature_pic.url}}"
               alt="Generic placeholder image">
+              </a>
           {% endif %}
         </div>
       </div>
@@ -159,11 +165,11 @@ landing
           <div class="card mb-4 box-shadow">
             {% if t_section.miniature_pic  %}
             <img class="card-img-top" src="{{t_section.miniature_pic.url}}"
-              alt="Card image cap">
+              alt="Card image cap" width="300" height="220">
             {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{t_section.name}}</h5>
-              <p class="card-text">{{t_section.description}}.</p>
+              <p class="card-text">{{t_section.description |truncatewords:"19"}}.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-primary" ><a href="{% url 'publication_app:publication' t_section.id %}">Visitar</a> </button>
