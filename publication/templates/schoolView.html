@@ -34,10 +34,9 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-<br>
-<br>
-<br>
-<br>
+
+<!-- Tarjeta de info -->
+  
 <head>
 	<link rel="stylesheet" type="text/css" href='{% static "css/escuela.css" %}'>
 </head>
@@ -110,7 +109,51 @@
               </div>
             </div>
           </div>
-
         </div>
     </div>
+    <!-- Tarjeta 1 -->
+    <hr class="featurette-divider">
+      <div class="row featurette">
+        <div class="col-md-6">
+          <h2 class="featurette-heading">Titulo Ejemplo</h2>
+          <p class="lead">Contenido de ejemplo</p>
+        </div>
+        <div class="col-md-6">
+            <img class="featurette-image img-fluid mx-auto" src=" https://scontent.fbjx1-1.fna.fbcdn.net/v/t1.6435-9/175606924_1222446684837143_4062489669868342351_n.png?_nc_cat=111&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeEX8TWqix4vl6lCysKCwd7EEL76hVZ2PiIQvvqFVnY-IgkDaeH1djIIYokt1ie-Ing&_nc_ohc=Ro0wg7kFS74AX9r1Osb&_nc_ht=scontent.fbjx1-1.fna&oh=00_AT9eyT9XVS9W1OksIaEZDoO3VZCKotBH3ABjZVDBC7tDyg&oe=62ADDDC2"
+              alt="Generic placeholder image">
+        </div>
+      </div>
+    <hr class="featurette-divider">
+    {% for s2_section in s_sec2 %}
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">{{s2_section.title}}</h2>
+          <p class="lead">{{s2_section.description}}</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          {% if s2_section.miniature_pic  %}
+            <img class="featurette-image img-fluid mx-auto" src="{{s2_section.miniature_pic.url}}"
+              alt="Generic placeholder image">
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+    <hr class="featurette-divider">
+    {% for s3_section in s_sec3 %}
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{s3_section.title}}</h2>
+          <p class="lead">{{s3_section.description}}</p>
+        </div>
+        <div class="col-md-5">
+          {% if s3_section.miniature_pic  %}
+            <img class="featurette-image img-fluid mx-auto" src="{{s3_section.miniature_pic.url}}"
+              alt="Generic placeholder image">
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+    <hr class="featurette-divider">
+xxxxx
     {% endblock %}
+
