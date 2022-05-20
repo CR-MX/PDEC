@@ -44,7 +44,7 @@ def crearCarrusel(request):
 
 def allPublications(request):
     # all publications sort by desc
-    all_publications = Publication.objects.all().filter(section='T')
+    all_publications = Publication.objects.all()
     context = {
                 'all_publications': all_publications,
     }
