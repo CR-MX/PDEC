@@ -86,7 +86,7 @@
                     <div>
                         <ul class="list-unstyled mb-0">
                             {% for article in all_article %}
-                            <li><a href="{% url 'publication_app:publication' article.id %}">ss{{article.title}}</a>
+                            <li><a href="{% url 'publication_app:publication' article.id %}">{{article.title}}</a>
                             </li>
                             {% endfor %}
                         </ul>
