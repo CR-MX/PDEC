@@ -9,8 +9,11 @@ def Publicacion(request, id):
     # print(id ,args,kwargs)
     
     article = Publication.objects.get(id=id)
-    context = {'article': article}
-    print(context)
+    all_article = Publication.objects.all()
+    all_article = all_article[0:6]
+    context = {'article': article, 
+                'all_article':all_article}
+    # print(context)
     # article = Publication.objects.all()
     # print(public)
     return render(request, 'publicacion.html', context)
