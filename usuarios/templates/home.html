@@ -47,9 +47,9 @@ Login
 
           </td>
           <td>
-            <a href="{% url 'eduacionapp:editar' item.id %}" class="btn btn-outline-primary btn-sm">Modificar Informacion</a>
-            <a href="{% url 'eduacionapp:editar_permisos' item.id %}" class="btn btn-outline-primary btn-sm">Modificar Permisos</a>
-            <a href="{% url 'eduacionapp:borrar' item.id %}" class="btn btn-outline-danger btn-sm">Eliminar</a>
+            <a class="btn btn-primary" href="{% url 'eduacionapp:editar' item.id %}" class="btn btn-outline-primary btn-sm">Modificar Informacion</a>
+            <a class="btn btn-success" href="{% url 'eduacionapp:editar_permisos' item.id %}" class="btn btn-outline-primary btn-sm">Modificar Permisos</a>
+            <a class="btn btn-danger" href="{% url 'eduacionapp:borrar' item.id %}" class="btn btn-outline-danger btn-sm">Eliminar</a>
           </td>
         </tr>
 
@@ -60,8 +60,8 @@ Login
       </tbody>
     </table>
   </div>
-  <a type="button" href="{% url 'publication_app:adminCenter' %}" class="btn btn-outline-primary">Centro de administración</a>
-    <a type="button" href="{% url 'publication_app:crearPublicacion' %}" class="btn btn-outline-success">Crear Publicación</a>
+  <a type="button" class="btn btn-primary" href="{% url 'publication_app:adminCenter' %}" class="btn btn-outline-primary">Centro de administración</a>
+    <a type="button" class="btn btn-success" href="{% url 'publication_app:crearPublicacion' %}" class="btn btn-outline-success">Crear Publicación</a>
 </div>
 
 {% else %}
