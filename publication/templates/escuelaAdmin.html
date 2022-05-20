@@ -1,6 +1,6 @@
 {% extends "base_us.html" %}
 {% block title %}
-Publicaciones
+Carreras
 
 {% endblock %}
 {% load static %}
@@ -8,33 +8,31 @@ Publicaciones
 {% block content %}
 <br>
 <br>
-<br>
-<br>
-<div class="container">
+<!-- Nueva forma de data table -->
+<div class="container-fluid p-4 my-3 border">
+    <h2 class="app-page-title"> Carreras</h2>
+    <div class="table-responsive">
+        <table class="table table-striped  table-bordered" id="tblUsu" style="width:100%">
+            <thead class="thead-dark">
+                <th>Nombre de carrera</th>
+                <th>Unidad UnidadAcademica</th>
+                <th>Acciones</th>
 
-    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic">administrador de Escuelas</h1>
-        </div>
+            </thead>
+            <tbody>
+                {% for item in all_schools %}
+                <tr>
+                    <td>{{item.nombreCarrera}}</td>
+                    <td>{{item.UnidadAcademica}}</td>
+                    <td>
+                        <a type="button" href="{% url 'publication_app:edicionEscuela' item.id %}" class="btn btn-outline-primary ">Editar</a>
+                        <a type="button" href="{% url 'publication_app:eliminaEscuela' item.id %}" class="btn btn-outline-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-
-    {% for all_schools in all_schools %}
-            <div class="card border-secondary mb-3 ">
-                {% if all_schools.publication_pic %}
-                <img class="card-img-top border-primary" src="{{all_schools.publication_pic.url}}" width="700"
-                    height="300">
-                {% endif %}
-
-                <div class="card-body">
-                    <h5 class="card-title">{{all_schools.nombreCarrera}}</h5>
-                    <p class="card-text">{{all_schools.UnidadAcademica}}</p>
-                    <a href="{% url 'publication_app:edicionEscuela' all_schools.id %}" class="btn btn-outline-primary ">Editar</a>
-                    <a href="{% url 'publication_app:eliminaEscuela' all_schools.id %}" class="btn btn-outline-primary ">Eliminar</a>
-                </div>
-            </div>
-    {% endfor %}
-
-
+    <a type="button" href="{% url 'publication_app:adminCenter' %}" class="btn btn-outline-primary">Centro de administración</a>
 </div>
-
 {% endblock %}

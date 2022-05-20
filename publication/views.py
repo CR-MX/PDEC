@@ -21,7 +21,8 @@ def crearPublicacion(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return render(request, 'landing.html')
+            return redirect('publication_app:publicationAdmin')
+            
     else:
         form = PublicationForm()
     return render(request, 'crearPublicacion.html', {'form': form})
@@ -32,7 +33,7 @@ def crearCarrusel(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return render(request, 'landing.html')
+            return redirect('publication_app:carruselAdmin')
     else:
         form = CarruselForm()
     return render(request, 'crearCarrusel.html', {'form': form})
@@ -60,7 +61,7 @@ def edicionPublication(request, id):
         form = PublicationForm(request.POST, instance=article)
         if form.is_valid():
             form.save()
-            return redirect('eduacionapp:home')
+            return redirect('publication_app:publicationAdmin')
     context = {'article': form}
     return render(request, 'editarPublicacion.html', context)
 
@@ -90,7 +91,7 @@ def edicionCarrusel(request, id):
         form = CarruselForm(request.POST, instance=article)
         if form.is_valid():
             form.save()
-            return redirect('eduacionapp:home')
+            return redirect('publication_app:carruselAdmin')
     context = {'form': form}
     print(context)
     return render(request, 'editarCarrusel.html', context)
@@ -110,7 +111,9 @@ def crearEscuela(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return render(request, 'landing.html')
+            
+            return redirect('publication_app:escuelaAdmin')
+
     else:
         form = SchoolsForm()
     return render(request, 'crearEscuela.html', {'form': form})
@@ -134,7 +137,7 @@ def edicionEscuela(request, id):
         form = SchoolsForm(request.POST, instance=article)
         if form.is_valid():
             form.save()
-            return redirect('eduacionapp:home')
+            return redirect('publication_app:escuelaAdmin')
     context = {'form': form}
     print(context)
     return render(request, 'editarEscuelas.html', context)
@@ -151,7 +154,16 @@ def eliminaEscuela(request, id):
     school = Schools.objects.get(id=id)
     if request.method == "POST":
         school.delete()
-        return redirect('eduacionapp:home')
+        return redirect('publication_app:escuelaAdmin')
 
     context = {'school': school}
     return render(request, 'eliminarEscuela.html', context)
+
+def adminCenter(request):
+    # all publications sort by desc
+    # all_publications = Publication.objects.all().filter(section='T')
+    # context = {
+    #             'all_publications': all_publications,
+    # }
+    # return render(request, 'adminCenter.html',context)
+    return render(request, 'adminCenter.html')
