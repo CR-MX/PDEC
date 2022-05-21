@@ -21,7 +21,7 @@ urlpatterns = [
     path('escuelaAdmin/',views.escuelaAdmin, name='escuelaAdmin'),
     path('edicionEscuela/<int:id>/',views.edicionEscuela, name='edicionEscuela'),
     path('eliminaEscuela/<int:id>/', views.eliminaEscuela, name='eliminaEscuela'),
-    path('schoolView/<int:id>/',views.obtenerEscuela, name='schoolView'),
+    path('schoolView/<int:id>/',views.schoolView, name='schoolView'),
     path('adminCenter/',views.adminCenter, name='adminCenter'),
 ] 
 

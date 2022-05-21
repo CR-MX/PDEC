@@ -146,9 +146,9 @@ def edicionEscuela(request, id):
     print(context)
     return render(request, 'editarEscuelas.html', context)
 
-def obtenerEscuela(request, id):
-    article = School.objects.get(id=id)
-    context = {'article': article}
+def schoolView(request, id):
+    school = School.objects.get(id=id)
+    context = {'school': school}
     #print(context)
     # article = Publication.objects.all()
     # print(public)

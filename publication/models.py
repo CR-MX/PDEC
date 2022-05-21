@@ -59,9 +59,22 @@ class School(models.Model):
      direction=models.CharField(max_length=500)
      urlSite = models.CharField(max_length=500)
      miniature_pic = models.ImageField(null=True,blank=True)
+
      carrusel_pic_1 = models.ImageField(null=True,blank=True)
+     cp_1_title  = models.CharField(max_length=250, null=True, blank=True)
+     cp_1_description  = models.TextField(max_length=500, null=True, blank=True)
+     cp_1_linkButon = models.CharField(max_length=1000, null=True, blank=True)
+
      carrusel_pic_2 = models.ImageField(null=True,blank=True)
+     cp_2_title  = models.CharField(max_length=250, null=True, blank=True)
+     cp_2_description  = models.TextField(max_length=500, null=True, blank=True)
+     cp_2_linkButon = models.CharField(max_length=1000, null=True, blank=True)
+
      carrusel_pic_3 = models.ImageField(null=True,blank=True)
+     cp_3_title  = models.CharField(max_length=250, null=True, blank=True)
+     cp_3_description  = models.TextField(max_length=500, null=True, blank=True)
+     cp_3_linkButon = models.CharField(max_length=1000, null=True, blank=True)
+
      visible =(('A','Activado'),
                 ('D','Desactivado'))
      content_1 = models.TextField(max_length=2000, null=True, blank=True)

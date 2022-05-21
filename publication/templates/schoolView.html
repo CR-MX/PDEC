@@ -8,121 +8,115 @@
 <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
 <main role="main">
 
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="https://noticias.funiber.org/wp-content/uploads/2019/09/banner-esp-nutricion-dietetica-noticias.jpg" alt="First slide">
+          {% if school.carrusel_pic_1  %}
+            <img class="first-slide" src="{{school.carrusel_pic_1.url}}" alt="First slide">
+          {% endif %}
+          <div class="container">
+            <div class="carousel-caption text-left">
+              {% if school.cp_1_title  %}
+                <h1>{{school.cp_1_title}}</h1>
+                <p>{{school.cp_1_description}}</p>
+              {% endif %}
+              {% if school.cp_1_linkButon  %}
+                <p><a class="btn btn-lg btn-secondary" href="{{school.cp_1_linkButon}}" role="button">Visitar</a></p>
+              {% endif %}
+            </div>
+          </div>
       </div>
+
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://nutricionadistancia.uaz.edu.mx/pluginfile.php/1/theme_academi/logo/1632017888/logo-nut-mini.jpg" alt="Second slide">
+          {% if school.carrusel_pic_2  %}
+            <img class="second-slide" src="{{school.carrusel_pic_2.url}}" alt="Second slide">
+          {% endif %}
+        <div class="container">
+          <div class="carousel-caption">
+            {% if school.cp_2_title  %}
+              <h1>{{school.cp_2_title}}</h1>
+              <p>{{school.cp_2_description}}</p>
+            {% endif %}
+            {% if school.cp_2_linkButon  %}
+            <p><a class="btn btn-lg btn-secondary" href="{{school.cp_2_linkButon}}" role="button">Visitar</a></p>
+            {% endif %}
+          </div>
+        </div>
       </div>
+
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://nutrisport.es/web/wp-content/uploads/2020/09/Banner-Grande-Blog-NutriSport-5.png" alt="Third slide">
+          {% if school.carrusel_pic_3  %}
+            <img class="third-slide" src="{{school.carrusel_pic_3.url}}" alt="Third slide">
+          {% endif %}
+        <div class="container">
+          <div class="carousel-caption text-right">
+            {% if school.cp_3_title  %}
+              <h1>{{school.cp_3_title}}</h1>
+              <p>{{school.cp_3_description}}</p>
+            {% endif %}
+            {% if school.cp_3_linkButon %}
+            <p><a class="btn btn-lg btn-secondary" href="{{school.cp_3_linkButon}}" role="button">Visitar</a></p>
+            {% endif %}
+          </div>
+        </div>
       </div>
+
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
 
-<!-- Tarjeta de info -->
-  
-<head>
-	<link rel="stylesheet" type="text/css" href='{% static "css/escuela.css" %}'>
-</head>
-<div class="container">
-    <div class="main-body">
+  <div class="container marketing">
+    
+    <!-- Primera seccion de imagenes redondas -->
+    <div class="row">
+      {% for f_section in f_sec %}
+        <div class="col-lg-4">
+            {% if f_section.miniature_pic  %}
+              <img class="rounded-circle"
+                src="{{f_section.miniature_pic.url}}"
+                alt="Generic placeholder image" width="140" height="140">
+            {% endif %}
 
-          <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
-                    {% if article.publication_pic  %}
-                      <img src="{{article.publication_pic.url}}" alt="Admin" class="rounded-circle" width="150">
-                    {% endif %}
-                  </div>
-                </div>
-              </div>
-
-              <div class="card mt-3">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Sitio web</h6>
-                    <span class="text-secondary">{{article.urlSite}}</span>
-                  </li>
-                </ul>
-              </div>
-
-
-            </div>
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h5 class="mb-0">Unidad Académica</h5>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{article.UnidadAcademica}}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h5 class="mb-0">Carrera</h5>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{article.nombreCarrera}}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h5 class="mb-0">direccion</h5>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{article.direction}}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h5 class="mb-0">Descripción</h5>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{article.description}}
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
+          <h2>{{f_section.nombreCarrera}}</h2>
+          <p>{{f_section.description}}</p>
+          <p><a class="btn btn-secondary" href="{% url 'publication_app:schoolView' f_section.id %}" role="button">Visitar &raquo;</a></p>
         </div>
+      {% endfor %}
     </div>
-    <!-- Tarjeta 1 -->
+    <!-- /Termina Primera seccion de imagenes redondas -->
+
+
+    <!-- Segunda seccion las cuales son fijas -->
+
     <hr class="featurette-divider">
+    {% for s1_section in s_sec1 %}
       <div class="row featurette">
-        <div class="col-md-6">
-          <h2 class="featurette-heading">Titulo Ejemplo</h2>
-          <p class="lead">Contenido de ejemplo</p>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{s1_section.title}}</h2>
+          <p class="lead">{{s1_section.description}}</p>
         </div>
-        <div class="col-md-6">
-            <img class="featurette-image img-fluid mx-auto" src=" https://scontent.fbjx1-1.fna.fbcdn.net/v/t1.6435-9/175606924_1222446684837143_4062489669868342351_n.png?_nc_cat=111&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeEX8TWqix4vl6lCysKCwd7EEL76hVZ2PiIQvvqFVnY-IgkDaeH1djIIYokt1ie-Ing&_nc_ohc=Ro0wg7kFS74AX9r1Osb&_nc_ht=scontent.fbjx1-1.fna&oh=00_AT9eyT9XVS9W1OksIaEZDoO3VZCKotBH3ABjZVDBC7tDyg&oe=62ADDDC2"
-              alt="Generic placeholder image">
+        <div class="col-md-5 cardimg">
+          {% if s1_section.miniature_pic  %}
+            <a href="{% url 'publication_app:publication' s1_section.id %}">
+            <img class="featurette-image img-fluid mx-auto scala" src="{{s1_section.miniature_pic.url}}"
+              alt="Generic placeholder image" >
+            </a>
+          {% endif %}
         </div>
       </div>
+    {% endfor %}
     <hr class="featurette-divider">
     {% for s2_section in s_sec2 %}
       <div class="row featurette">
@@ -130,10 +124,12 @@
           <h2 class="featurette-heading">{{s2_section.title}}</h2>
           <p class="lead">{{s2_section.description}}</p>
         </div>
-        <div class="col-md-5 order-md-1">
+        <div class="col-md-5 order-md-1 cardimg">
           {% if s2_section.miniature_pic  %}
-            <img class="featurette-image img-fluid mx-auto" src="{{s2_section.miniature_pic.url}}"
+          <a href="{% url 'publication_app:publication' s2_section.id %}">
+            <img class="featurette-image img-fluid mx-auto scala" src="{{s2_section.miniature_pic.url}}"
               alt="Generic placeholder image">
+            </a>
           {% endif %}
         </div>
       </div>
@@ -145,15 +141,48 @@
           <h2 class="featurette-heading">{{s3_section.title}}</h2>
           <p class="lead">{{s3_section.description}}</p>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 cardimg">
           {% if s3_section.miniature_pic  %}
-            <img class="featurette-image img-fluid mx-auto" src="{{s3_section.miniature_pic.url}}"
+          <a href="{% url 'publication_app:publication' s3_section.id %}">
+            <img class="featurette-image img-fluid mx-auto scala" src="{{s3_section.miniature_pic.url}}"
               alt="Generic placeholder image">
+              </a>
           {% endif %}
         </div>
       </div>
     {% endfor %}
     <hr class="featurette-divider">
-xxxxx
-    {% endblock %}
+    <!-- /termina segunda seccion -->
+  </div>
+  <!-- Tercera seccion -->
+  <div class="container">
+    <h2 class="app-page-title"> Notas y noticias </h2>
+
+    <div class="row">
+      {% for t_section in t_sec %}
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            {% if t_section.miniature_pic  %}
+            <img class="card-img-top" src="{{t_section.miniature_pic.url}}"
+              alt="Card image cap" width="300" height="220">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{t_section.name}}</h5>
+              <p class="card-text">{{t_section.description |truncatewords:"19"}}.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-primary" ><a href="{% url 'publication_app:publication' t_section.id %}">Visitar</a> </button>
+                </div>
+                <small class="text-muted blog-post-meta" > {{t_section.published}} por <a href="#">{{t_section.author}}</a></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- /Termina Tercera seccion -->
+
+</main>
+{% endblock %}
 
