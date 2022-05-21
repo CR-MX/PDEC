@@ -13,7 +13,7 @@ from django.shortcuts import render, redirect
 #importa los grupos que tienen diferentes permisos
 from django.contrib.auth.models import Group
 #Desde la otra aplicación
-from publication.models import Carousel, Publication, Schools
+from publication.models import Carousel, Publication, School
 
 
 #Esta clase se utiliza para realizar el registro de un nuevo usuario en la plataforma web
@@ -41,7 +41,7 @@ def Home(request):
 
 def Landing(request):
     # first section img rounded
-    f_sec = Schools.objects.all()
+    f_sec = School.objects.all()
     # deliminta el numero de publicaciones
     f_sec = f_sec[0:6]
     # second section img rectangle speccific  1, 2, 3

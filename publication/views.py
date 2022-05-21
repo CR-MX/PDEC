@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import PublicationForm,CarruselForm, SchoolsForm
+from .forms import PublicationForm,CarruselForm, SchoolForm
 
 # from publication import Publications
-from publication.models import Publication,Carousel,Schools
+from publication.models import Publication,Carousel,School
 
 from django.views.generic import ListView
 
@@ -111,7 +111,7 @@ def eliminaCarrusel(request, id):
 
 def crearEscuela(request):
     if request.method == "POST":
-        form = SchoolsForm(request.POST, request.FILES)
+        form = SchoolForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
@@ -119,26 +119,26 @@ def crearEscuela(request):
             return redirect('publication_app:escuelaAdmin')
 
     else:
-        form = SchoolsForm()
+        form = SchoolForm()
     return render(request, 'crearEscuela.html', {'form': form})
 
 
 def escuelaAdmin(request):
     # all publications sort by desc
-    all_schools = Schools.objects.all()
+    all_school = School.objects.all()
     context = {
-                'all_schools': all_schools,
+                'all_school': all_school,
     }
     return render(request, 'escuelaAdmin.html',context)
 
 
 def edicionEscuela(request, id):
-    article =Schools.objects.get(id=id)
+    article =School.objects.get(id=id)
     #print(article)
-    form = SchoolsForm(instance=article)
+    form = SchoolForm(instance=article)
     #print(form)
     if request.method == 'POST':
-        form = SchoolsForm(request.POST, instance=article)
+        form = SchoolForm(request.POST, instance=article)
         if form.is_valid():
             form.save()
             return redirect('publication_app:escuelaAdmin')
@@ -147,7 +147,7 @@ def edicionEscuela(request, id):
     return render(request, 'editarEscuelas.html', context)
 
 def obtenerEscuela(request, id):
-    article = Schools.objects.get(id=id)
+    article = School.objects.get(id=id)
     context = {'article': article}
     #print(context)
     # article = Publication.objects.all()
@@ -155,7 +155,7 @@ def obtenerEscuela(request, id):
     return render(request, 'schoolView.html', context)
 
 def eliminaEscuela(request, id):
-    school = Schools.objects.get(id=id)
+    school = School.objects.get(id=id)
     if request.method == "POST":
         school.delete()
         return redirect('publication_app:escuelaAdmin')

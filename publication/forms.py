@@ -1,11 +1,11 @@
 from django import forms
 
-from .models import Publication,Carousel, Schools
+from .models import Publication,Carousel, School
 
 class PublicationForm(forms.ModelForm):
     class Meta:
         model = Publication
-        fields = ('title', 'author', 'description', 'content1', 'content2', 'content3', 'background_pic', 'publication_pic', 'miniature_pic', 'section')
+        fields = ('title', 'author', 'description', 'content1', 'content2', 'content3', 'publication_pic', 'miniature_pic', 'section')
         
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
@@ -28,9 +28,9 @@ class CarruselForm(forms.ModelForm):
                 'linkButon': forms.TextInput(attrs={'class': 'form-control'}),
             }
 
-class SchoolsForm(forms.ModelForm):
+class SchoolForm(forms.ModelForm):
     class Meta:
-        model = Schools
+        model = School
         fields = "__all__"
 
         widgets = {
