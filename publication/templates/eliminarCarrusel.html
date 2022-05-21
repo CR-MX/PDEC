@@ -5,8 +5,10 @@ Borrar Carrusel
 {% endblock %}
 
 {% block content %}
+<br>
+<br>
 <div class="app-card app-card-orders-table shadow-sm mb-5">
-  <hr>
+  <br>
   <br>
   <h1>Eliminar Carrusel</h1>
   <div class="container card mb-3" style="width: 30rem;">
@@ -35,8 +37,10 @@ Borrar Carrusel
         </tbody>
       </table>
       <form method="post" class="order-form">
-        <p><input class="btn btn-danger btn-sm" type="submit" value="Confirm"></p>
-        <a href="{% url 'publication_app:carruselAdmin' %}" class="btn btn-outline-primary ">Cancelar</a>
+
+            <p><input class="btn btn-danger btn-sm" type="submit" value="Confirm"></p>
+            <a href="{% url 'publication_app:carruselAdmin' %}" class="btn btn-outline-primary">Cancelar</a>
+
         {% csrf_token %}
       </form>
     </div>
