@@ -5,7 +5,7 @@ from .models import Publication,Carousel, School
 class PublicationForm(forms.ModelForm):
     class Meta:
         model = Publication
-        fields = ('title', 'author', 'description', 'content1', 'content2', 'content3', 'publication_pic', 'miniature_pic', 'section')
+        fields = "__all__"
         
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
@@ -39,4 +39,7 @@ class SchoolForm(forms.ModelForm):
                 'description': forms.TextInput(attrs={'class': 'form-control'}),
                 'direction': forms.TextInput(attrs={'class': 'form-control'}),
                 'urlSite': forms.TextInput(attrs={'class': 'form-control'}),
+                'description_1': forms.TextInput(attrs={'class': 'form-control'}),
+                'description_2': forms.TextInput(attrs={'class': 'form-control'}),
+                'description_3': forms.TextInput(attrs={'class': 'form-control'}),
             }
