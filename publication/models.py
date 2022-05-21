@@ -64,9 +64,9 @@ class School(models.Model):
      carrusel_pic_3 = models.ImageField(null=True,blank=True)
      visible =(('A','Activado'),
                 ('D','Desactivado'))
-     description_1 = models.CharField(max_length=2000, null=True, blank=True)
-     description_2 = models.CharField(max_length=2000, null=True, blank=True)
-     description_3 = models.CharField(max_length=2000, null=True, blank=True)
+     content_1 = models.TextField(max_length=2000, null=True, blank=True)
+     content_2 = models.TextField(max_length=2000, null=True, blank=True)
+     content_3 = models.TextField(max_length=2000, null=True, blank=True)
      file1 = models.FileField(null=True,blank=True)
      file2 = models.FileField(null=True,blank=True)
      file3 = models.FileField(null=True,blank=True)
