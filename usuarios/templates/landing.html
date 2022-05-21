@@ -108,10 +108,10 @@ landing
           <h2 class="featurette-heading">{{s1_section.title}}</h2>
           <p class="lead">{{s1_section.description}}</p>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 cardimg">
           {% if s1_section.miniature_pic  %}
             <a href="{% url 'publication_app:publication' s1_section.id %}">
-            <img class="featurette-image img-fluid mx-auto" src="{{s1_section.miniature_pic.url}}"
+            <img class="featurette-image img-fluid mx-auto scala" src="{{s1_section.miniature_pic.url}}"
               alt="Generic placeholder image" >
             </a>
           {% endif %}
@@ -125,10 +125,10 @@ landing
           <h2 class="featurette-heading">{{s2_section.title}}</h2>
           <p class="lead">{{s2_section.description}}</p>
         </div>
-        <div class="col-md-5 order-md-1">
+        <div class="col-md-5 order-md-1 cardimg">
           {% if s2_section.miniature_pic  %}
           <a href="{% url 'publication_app:publication' s2_section.id %}">
-            <img class="featurette-image img-fluid mx-auto" src="{{s2_section.miniature_pic.url}}"
+            <img class="featurette-image img-fluid mx-auto scala" src="{{s2_section.miniature_pic.url}}"
               alt="Generic placeholder image">
             </a>
           {% endif %}
@@ -142,10 +142,10 @@ landing
           <h2 class="featurette-heading">{{s3_section.title}}</h2>
           <p class="lead">{{s3_section.description}}</p>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 cardimg">
           {% if s3_section.miniature_pic  %}
           <a href="{% url 'publication_app:publication' s3_section.id %}">
-            <img class="featurette-image img-fluid mx-auto" src="{{s3_section.miniature_pic.url}}"
+            <img class="featurette-image img-fluid mx-auto scala" src="{{s3_section.miniature_pic.url}}"
               alt="Generic placeholder image">
               </a>
           {% endif %}

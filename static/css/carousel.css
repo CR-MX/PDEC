@@ -88,3 +88,26 @@ body {
     margin-top: 7rem;
   }
 }
+
+.cardimg{
+  width: 350px;
+  height:350px ;
+}
+.scala{
+  position: absolute;
+  inset: 0;  
+  width: 350px;
+  height:350px ;
+  object-fit: cover;
+  transition: transform .3s;
+}
+.cardimg:hover .scala{
+  transform: scale(1.10);
+}
+
+.zoom{
+  transition: transform .2s;
+}
+.zoom:hover {
+  transform: scale(1.05); 
+}
