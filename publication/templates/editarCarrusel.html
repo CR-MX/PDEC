@@ -12,29 +12,27 @@ Carrusel
 <div class="container card mb-3">
     <div class="sign-form ">
         <br>      
-        <form method="post"> {% csrf_token %}
+        <form enctype="multipart/form-data" method="post" class="post-form"> {% csrf_token %}
             <h1>Edición de carrusel</h1>
             <br>
             <div class="input-group mb-3 ">
                 <div class="input-group-append">
                     <span class="input-group-text">Título:</span>
                 </div>
-                {{ form.title}}
+                {{ article.title}}
             </div>
             <div class="input-group mb-3 ">
                 <div class="input-group-append">
                     <span class="input-group-text">Descripción:</span>
                 </div>
-                {{ form.description}}
+                {{ article.description}}
             </div>
             
-            <div class="input-group mb-3 ">
-                
+            <div class="input-group mb-3">
                 <div class="input-group-append">
-                    <br>
-                    <span class="input-group-text">Foto del carrusel</span>
+                    <span input type="file">Foto del carrusel:</span>
                 </div>
-                {{ form.carousel_pic}}
+                {{ article.carousel_pic}}
             </div>
 
             <div class="row">
@@ -43,13 +41,13 @@ Carrusel
                     <div class="input-group-append">
                         <span class="input-group-text">Orden Publicación:</span>
                     </div>
-                    {{ form.ordenPublication}}
+                    {{ article.ordenPublication}}
                 </div>
                 <div class="input-group mb-3 col">
                     <div class="input-group-append">
                         <span class="input-group-text" >Mostrar Botón:</span>
                     </div>
-                    {{ form.showbuton}}
+                    {{ article.showbuton}}
                 </div>
 
             </div>
@@ -60,13 +58,13 @@ Carrusel
                     <div class="input-group-append">
                         <span class="input-group-text">Nombre Botón</span>
                     </div>
-                    {{ form.nameButon}}
+                    {{ article.nameButon}}
                 </div>
                 <div class="input-group mb-3 col">
                     <div class="input-group-append">
                         <span class="input-group-text">Link Botón 2:</span>
                     </div>
-                    {{ form.linkButon}}
+                    {{ article.linkButon}}
                 </div>
 
             </div>

@@ -24,8 +24,8 @@ class CarruselForm(forms.ModelForm):
         widgets = {
                 'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
                 'description': forms.TextInput(attrs={'class': 'form-control'}),
-                'nameButon': forms.TextInput(attrs={'class': 'form-control'}),
-                'linkButon': forms.TextInput(attrs={'class': 'form-control'}),
+                'nameButon': forms.Textarea(attrs={'class': 'form-control'}),
+                'linkButon': forms.Textarea(attrs={'class': 'form-control'}),
             }
 
 class SchoolForm(forms.ModelForm):
@@ -36,10 +36,18 @@ class SchoolForm(forms.ModelForm):
         widgets = {
                 'UnidadAcademica': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
                 'nombreCarrera': forms.TextInput(attrs={'class': 'form-control'}),
-                'description': forms.TextInput(attrs={'class': 'form-control'}),
                 'direction': forms.TextInput(attrs={'class': 'form-control'}),
                 'urlSite': forms.TextInput(attrs={'class': 'form-control'}),
-                'description_1': forms.TextInput(attrs={'class': 'form-control'}),
-                'description_2': forms.TextInput(attrs={'class': 'form-control'}),
-                'description_3': forms.TextInput(attrs={'class': 'form-control'}),
+                'cp_1_title': forms.TextInput(attrs={'class': 'form-control'}),
+                'cp_1_description': forms.Textarea(attrs={'class': 'form-control'}),
+                'cp_1_linkButon': forms.TextInput(attrs={'class': 'form-control'}),
+                'cp_2_title': forms.TextInput(attrs={'class': 'form-control'}),
+                'cp_2_description': forms.Textarea(attrs={'class': 'form-control'}),
+                'cp_2_linkButon': forms.TextInput(attrs={'class': 'form-control'}),
+                'cp_3_title': forms.TextInput(attrs={'class': 'form-control'}),
+                'cp_3_description': forms.Textarea(attrs={'class': 'form-control'}),
+                'cp_3_linkButon': forms.TextInput(attrs={'class': 'form-control'}),
+                'content_1': forms.Textarea(attrs={'class': 'form-control'}),
+                'content_2': forms.Textarea(attrs={'class': 'form-control'}),
+                'content_3': forms.Textarea(attrs={'class': 'form-control'}),
             }

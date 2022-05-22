@@ -7,13 +7,14 @@ Escuelas
 <br>
 <br>
 <br>
+<br>
+<br>
 <div class="container card mb-3">
     <div class="sign-form ">
-        <br>      
+        <br> 
         <form enctype="multipart/form-data" method="post" class="post-form"> {% csrf_token %}
-            <h1>Editar escuela</h1>   
+             <h1>Editar escuela</h1>   
              <br>
-
             <div class="row">
                 
                 <div class="input-group mb-3 ">
@@ -49,13 +50,13 @@ Escuelas
 
             <div class="row">
                 
-                <div class="input-group mb-3 col division">
+                <div class="input-group mb-3 col">
                     <div class="input-group-append">
                         <span input type="file" >Logo carrera:</span>
                     </div>
                     {{ form.logo_pic}}
                 </div>
-                <div class="input-group mb-3 col division">
+                <div class="input-group mb-3 col">
                     <div class="input-group-append">
                         <span input type="file" >Miniatura logo carrera:</span>
                     </div>
@@ -66,14 +67,34 @@ Escuelas
 
             <br>
 
-            <div class="row">
-                
-                <div class="input-group mb-3 col">
-                    <div class="input-group-append">
+            <div class="input-group mb-3 col">
+                <div class="input-group-append">
                         <span input type="file" >Carrusel 1:</span>
-                    </div>
-                    {{ form.carrusel_pic_1}}
                 </div>
+                {{ form.carrusel_pic_1}}
+            </div>
+
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                        <span class="input-group-text">Título 1:</span>
+                </div>
+                {{ form.cp_1_title}}
+            </div>
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                        <span class="input-group-text">Descripción 1:</span>
+                </div>
+                {{ form.cp_1_description}}
+            </div>
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                        <span class="input-group-text">Link 1:</span>
+                </div>
+                {{ form.cp_1_linkButon}}
+            </div>
+            
+
+
                 <div class="input-group mb-3 col">
                     <div class="input-group-append">
                         <span input type="file" >Carrusel 2:</span>
@@ -81,6 +102,23 @@ Escuelas
                     {{ form.carrusel_pic_2}}
                 </div>
 
+                <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                        <span class="input-group-text">Título 2:</span>
+                </div>
+                {{ form.cp_2_title}}
+            </div>
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                        <span class="input-group-text">Descripción 2:</span>
+                </div>
+                {{ form.cp_2_description}}
+            </div>
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                        <span class="input-group-text">Link 2:</span>
+                </div>
+                {{ form.cp_2_linkButon}}
             </div>
 
             <div class="input-group mb-3">
@@ -90,25 +128,44 @@ Escuelas
                 {{ form.carrusel_pic_3}}
             </div>
 
-                
-                <div class="input-group mb-3">
-                    <div class="input-group-append">
-                        <span class="input-group-text">Descripción 1:</span>
-                    </div>
-                    {{ form.description_1}}
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-append">
-                        <span class="input-group-text">Descripción 2:</span>
-                    </div>
-                    {{ form.description_2}}
-                </div>
-
-             <div class="input-group mb-3">
+            <div class="input-group mb-3 ">
                 <div class="input-group-append">
-                    <span class="input-group-text">Descripción 3:</span>
+                        <span class="input-group-text">Título 3:</span>
                 </div>
-                {{ form.description_3}}
+                {{ form.cp_3_title}}
+            </div>
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                        <span class="input-group-text">Descripción 3:</span>
+                </div>
+                {{ form.cp_3_description}}
+            </div>
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                        <span class="input-group-text">Link 3:</span>
+                </div>
+                {{ form.cp_3_linkButon}}
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-append">
+                    <span class="input-group-text">Contenido 1:</span>
+                </div>
+                {{ form.content_1}}
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-append">
+                    <span class="input-group-text">Contenido 2:</span>
+                </div>
+                {{ form.content_2}}
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-append">
+                    <span class="input-group-text">Contenido 3:</span>
+                </div>
+                {{ form.content_3}}
             </div>
 
 
@@ -137,7 +194,7 @@ Escuelas
             </div>
             
             <div class="d-flex justify-content-center mt-3 login_container row">
-                <button type="submit" class="btn btn-success btn-lg btn-block col">Actualizar</button>
+                <button type="submit" class="btn btn-success btn-lg btn-block col">Actualizar Escuela</button>
                 <a href="{% url 'publication_app:escuelaAdmin' %}" class="btn col">Cancelar</a>
             </div>
 

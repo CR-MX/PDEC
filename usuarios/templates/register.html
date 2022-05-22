@@ -7,8 +7,11 @@ Registrar Nuevo Usuario
 <br>
 <br>
 <br>
-<div class="container card mb-3" style="width: 30rem;">
+<br>
+<br>
+<div class="container card mb-3">
     <div class="sign-form ">
+        <h1>Crear usuario</h1>
         <br>
         <form method="post">
             {% csrf_token %}
@@ -18,18 +21,23 @@ Registrar Nuevo Usuario
                 </div>
                 {{ form.username }}
             </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                    <span class="input-group-text">Nombre(s):</span>
+
+            <div class="row">
+                
+                <div class="input-group mb-3 col">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Nombre(s):</span>
+                    </div>
+                    {{ form.first_name }}
                 </div>
-                {{ form.first_name }}
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                    <span class="input-group-text">Apellido(s):</span>
+                <div class="input-group mb-3 col">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Apellido(s):</span>
+                    </div>
+                    {{ form.last_name }}
                 </div>
-                {{ form.last_name }}
             </div>
+            
             <div class="input-group mb-3 ">
                 <div class="input-group-append">
                     <span class="input-group-text">Correo:</span>
@@ -51,12 +59,13 @@ Registrar Nuevo Usuario
                 </div>
                 {{ form.password2 }}
             </div>
-            <div class="d-flex justify-content-center mt-3 login_container">
-                <button class="btn  btn-success" type="submit">Agregar</button>
-                <td><a class="btn  btn-danger" href="{% url 'eduacionapp:login' %}" role="button">Cancelar</a></td>
+            <div class="d-flex justify-content-center mt-3 login_container row">
+                <button class="btn  btn-success col" type="submit">Agregar</button>
+                <td><a class="btn  btn-danger col" href="{% url 'eduacionapp:login' %}" role="button">Cancelar</a></td>
             </div>
             <a class="d-flex card-text justify-content-center mt-3 login_container"
                 href="{% url 'eduacionapp:login' %}">Accede con una cuenta</a>
+            <br>
         </form>
     </div>
 </div>

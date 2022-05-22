@@ -14,10 +14,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group
 #Desde la otra aplicación
 from publication.models import Carousel, Publication, School
+from django.contrib.auth.decorators import login_required
 
 
 #Esta clase se utiliza para realizar el registro de un nuevo usuario en la plataforma web
-@method_decorator(unauthenticated_user, name='dispatch')
+#@method_decorator(unauthenticated_user, name='dispatch')
 class Register(CreateView):
     model = User
     template_name = "register.html"
@@ -33,11 +34,12 @@ class Login(LoginView):
     success_url = reverse_lazy('eduacionapp:admin')
 
 #Esta clase es para organizar el contenido base de la plataforma web
-
+@login_required(login_url='eduacionapp:login')
 def Home(request):
     usuarios = User.objects.all()
     context = {'usuarios': usuarios}
     return render(request, 'home.html', context)
+
 
 def Landing(request):
     # first section img rounded
@@ -79,6 +81,7 @@ def Avisos(request):
 class ListaUsuario(ListView):
     model = User
 
+@login_required(login_url='eduacionapp:login')
 def editar_usuario(request, id):
     usuario = User.objects.get(id=id)
     form = UsuarioForm(instance=usuario)
@@ -91,6 +94,7 @@ def editar_usuario(request, id):
     return render(request, 'editar_usuario.html', context)
 
 # Elimina un usario
+@login_required(login_url='eduacionapp:login')
 def elimina_usuario(request, id):
     usua = User.objects.get(id=id)
     if request.method == "POST":
@@ -101,6 +105,7 @@ def elimina_usuario(request, id):
     return render(request, 'delete.html', context)
 
 #Modifica los permisos de un usuario
+@login_required(login_url='eduacionapp:login')
 def editar_permisos(request, id):
     usua =User.objects.get(id=id)
     group_al = Group.objects.get(name='alumno')

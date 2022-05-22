@@ -13,7 +13,7 @@ Carrusel
     <div class="sign-form ">
         <br>      
         <form enctype="multipart/form-data" method="post" class="post-form"> {% csrf_token %}
-            <h1>Registro de carrusel</h1>
+            <h1>Crear carrusel</h1>
             <br>
             <div class="input-group mb-3 ">
                 <div class="input-group-append">
@@ -28,11 +28,9 @@ Carrusel
                 {{ form.description}}
             </div>
             
-            <div class="input-group mb-3 ">
-                
+            <div class="input-group mb-3">
                 <div class="input-group-append">
-                    <br>
-                    <span class="input-group-text">Foto del carrusel</span>
+                    <span input type="file">Foto del carrusel:</span>
                 </div>
                 {{ form.carousel_pic}}
             </div>
@@ -53,8 +51,7 @@ Carrusel
                 </div>
 
             </div>
-
-
+            
             <div class="row">
                 
                 <div class="input-group mb-3 col">
@@ -71,9 +68,9 @@ Carrusel
                 </div>
 
             </div>
-            
+
             <div class="d-flex justify-content-center mt-3 login_container row">
-                <button type="submit" class="btn btn-success btn-lg btn-block col">Crear Carrusel</button>
+                <button type="submit" class="btn btn-success btn-lg btn-block col">Guardar Carrusel</button>
                 <a href="{% url 'publication_app:carruselAdmin' %}" class="btn col">Cancelar</a>
             </div>
         </form>
