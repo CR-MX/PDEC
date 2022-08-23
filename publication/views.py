@@ -11,7 +11,7 @@ def Publicacion(request, id):
     # print(id ,args,kwargs)
     
     article = Publication.objects.get(id=id)
-    all_article = Publication.objects.all()
+    all_article = Publication.objects.all().order_by('-published')
     all_article = all_article[0:6]
     context = {'article': article, 
                 'all_article':all_article}
@@ -48,7 +48,7 @@ def crearCarrusel(request):
 
 def allPublications(request):
     # all publications sort by desc
-    all_publications = Publication.objects.all()
+    all_publications = Publication.objects.all().order_by('-published')
     context = {
                 'all_publications': all_publications,
     }
