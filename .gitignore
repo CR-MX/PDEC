@@ -20,3 +20,9 @@ venv/
 usuarios/__pycache__/
 static/imagesPublications/
 *.pyc
+usuarios/__pycache__/views.cpython-39.pyc
+usuarios/__pycache__/urls.cpython-39.pyc
+usuarios/__pycache__/models.cpython-39.pyc
+usuarios/__pycache__/forms.cpython-39.pyc
+usuarios/__pycache__/decorators.cpython-39.pyc
+*.pyc
