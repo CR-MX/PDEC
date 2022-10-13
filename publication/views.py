@@ -20,7 +20,7 @@ def Publicacion(request, id):
     # print(public)
     return render(request, 'publicacion.html', context)
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def crearPublicacion(request):
     if request.method == "POST":
         form = PublicationForm(request.POST, request.FILES)
@@ -33,7 +33,7 @@ def crearPublicacion(request):
         form = PublicationForm()
     return render(request, 'crearPublicacion.html', {'form': form})
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def crearCarrusel(request):
     if request.method == "POST":
         form = CarruselForm(request.POST, request.FILES)
@@ -54,7 +54,7 @@ def allPublications(request):
     }
     return render(request, 'allPublications.html',context)
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def publicationAdmin(request):
     # all publications sort by desc
     all_publications = Publication.objects.all()
@@ -63,7 +63,7 @@ def publicationAdmin(request):
     }
     return render(request, 'publicationAdmin.html',context)
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def edicionPublication(request, id):
     article =Publication.objects.get(id=id)
     form = PublicationForm(instance=article)
@@ -91,7 +91,7 @@ def edicionPublication(request, id):
     return render(request, 'editarPublicacion.html', context)
 
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def eliminaPublicacion(request, id):
     publication = Publication.objects.get(id=id)
     if request.method == "POST":
@@ -101,7 +101,7 @@ def eliminaPublicacion(request, id):
     context = {'publication': publication}
     return render(request, 'eliminarPublicacion.html', context)
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def carruselAdmin(request):
     # all publications sort by desc
     all_carrusels = Carousel.objects.all()
@@ -110,7 +110,7 @@ def carruselAdmin(request):
     }
     return render(request, 'carruselAdmin.html',context)
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def edicionCarrusel(request, id):
     article =Carousel.objects.get(id=id)
     form = CarruselForm(instance=article)
@@ -125,7 +125,7 @@ def edicionCarrusel(request, id):
     context = {'article': form}
     return render(request, 'editarCarrusel.html', context)
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def eliminaCarrusel(request, id):
     carrusel = Carousel.objects.get(id=id)
     if request.method == "POST":
@@ -135,7 +135,7 @@ def eliminaCarrusel(request, id):
     context = {'carrusel': carrusel}
     return render(request, 'eliminarCarrusel.html', context)
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def crearEscuela(request):
     if request.method == "POST":
         form = SchoolForm(request.POST, request.FILES)
@@ -149,7 +149,7 @@ def crearEscuela(request):
         form = SchoolForm()
     return render(request, 'crearEscuela.html', {'form': form})
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def escuelaAdmin(request):
     # all publications sort by desc
     all_school = School.objects.all()
@@ -158,7 +158,7 @@ def escuelaAdmin(request):
     }
     return render(request, 'escuelaAdmin.html',context)
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def edicionEscuela(request, id):
     article =School.objects.get(id=id)
     #print(article)
@@ -205,7 +205,7 @@ def schoolView(request, id):
     # print(public)
     return render(request, 'schoolView.html', context)
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def eliminaEscuela(request, id):
     school = School.objects.get(id=id)
     if request.method == "POST":
