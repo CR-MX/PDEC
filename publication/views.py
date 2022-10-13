@@ -71,21 +71,6 @@ def edicionPublication(request, id):
     if request.method == 'POST':
         form = PublicationForm(request.POST, request.FILES , instance=article)
         if form.is_valid():
-            image_path = article.publication_pic.path
-            image_path2 = article.miniature_pic.path
-            file_path=article.file1.path
-            file_path2=article.file2.path
-            file_path3=article.file3.path
-            if os.path.exists(image_path):
-                os.remove(image_path)
-            elif os.path.exists(image_path2):
-                os.remove(image_path2)
-            elif os.path.exists(file_path):
-                os.remove(file_path)
-            elif os.path.exists(file_path2):
-                os.remove(file_path2)
-            elif os.path.exists(file_path3):
-                os.remove(file_path3)
             form.save()
             return redirect('publication_app:publicationAdmin')
     context = {'article': form}
@@ -168,31 +153,6 @@ def edicionEscuela(request, id):
     if request.method == 'POST':
         form = SchoolForm(request.POST, request.FILES, instance=article)
         if form.is_valid():
-            image_path = article.logo_pic.path
-            image_path2 = article.miniature_pic.path
-            image_path3 = article.carrusel_pic_1.path
-            image_path4 = article.carrusel_pic_2.path
-            image_path5 = article.carrusel_pic_3.path
-            file_path=article.file1.path
-            file_path2=article.file2.path
-            file_path3=article.file3.path
-            if os.path.exists(image_path):
-                os.remove(image_path)
-            elif os.path.exists(image_path2):
-                os.remove(image_path2)
-            elif os.path.exists(image_path3):
-                os.remove(image_path3)
-            elif os.path.exists(image_path4):
-                os.remove(image_path4)
-            elif os.path.exists(image_path5):
-                os.remove(image_path5)
-            elif os.path.exists(file_path):
-                os.remove(file_path)
-            elif os.path.exists(file_path2):
-                os.remove(file_path2)
-            elif os.path.exists(file_path3):
-                os.remove(file_path3)
-
             form.save()
             return redirect('publication_app:escuelaAdmin')
     context = {'form': form}
