@@ -55,7 +55,7 @@ def allPublications(request):
     }
     return render(request, 'allPublications.html',context)
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def publicationAdmin(request):
     # all publications sort by desc
     all_publications = Publication.objects.all()
@@ -102,7 +102,7 @@ def eliminaPublicacion(request, id):
     context = {'publication': publication}
     return render(request, 'eliminarPublicacion.html', context)
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def carruselAdmin(request):
     # all publications sort by desc
     all_carrusels = Carousel.objects.all()
@@ -150,7 +150,7 @@ def crearEscuela(request):
         form = SchoolForm()
     return render(request, 'crearEscuela.html', {'form': form})
 
-@login_required(login_url='eduacionapp:login')
+@staff_member_required(login_url='eduacionapp:login')
 def escuelaAdmin(request):
     # all publications sort by desc
     all_school = School.objects.all()
@@ -215,6 +215,7 @@ def eliminaEscuela(request, id):
 
     context = {'school': school}
     return render(request, 'eliminarEscuela.html', context)
+
 
 
 @staff_member_required(login_url='eduacionapp:login')
