@@ -25,12 +25,12 @@ Registrar Nuevo Usuario
                 <td>
                     <form method="post" class="order-form">
                         <input class="btn btn-success" type="submit" value="alumno" name="_estudiante"
-                            href="{% url 'eduacionapp:home' %}">
-                        <input class="btn btn-info" type="submit" value="Profesor" href="{% url 'eduacionapp:home' %}">
+                            href="{% url 'eduacionapp:landing' %}">
+                        <input class="btn btn-info" type="submit" value="Profesor" href="{% url 'eduacionapp:landing' %}">
                         {% csrf_token %}
                     </form>
                 </td>
-                <td><a class="btn  btn-danger" href="{% url 'eduacionapp:home' %}" role="button">Cancelar</a></td>
+                <td><a class="btn  btn-danger" href="{% url 'eduacionapp:landing' %}" role="button">Cancelar</a></td>
             </tr>
 
             {% endif %}

@@ -38,7 +38,7 @@ class Login(LoginView):
 def Home(request):
     usuarios = User.objects.all()
     context = {'usuarios': usuarios}
-    return render(request, 'home.html', context)
+    return render(request, 'landing.html', context)
 
 
 def Landing(request):
@@ -89,7 +89,7 @@ def editar_usuario(request, id):
         form = UsuarioForm(request.POST, instance=usuario)
         if form.is_valid():
             form.save()
-            return redirect('eduacionapp:home')
+            return redirect('eduacionapp:landing')
     context = {'form': form}
     return render(request, 'editar_usuario.html', context)
 
@@ -99,7 +99,7 @@ def elimina_usuario(request, id):
     usua = User.objects.get(id=id)
     if request.method == "POST":
         usua.delete()
-        return redirect('eduacionapp:home')
+        return redirect('eduacionapp:landing')
 
     context = {'usua': usua}
     return render(request, 'delete.html', context)

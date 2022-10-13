@@ -122,7 +122,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_REDIRECT_URL = 'publication_app:adminCenter'
+
+LOGIN_REDIRECT_URL = 'eduacionapp:landing'
 LOGOUT_REDIRECT_URL = 'eduacionapp:landing'
 
 # Static files (CSS, JavaScript, Images)

@@ -4,6 +4,7 @@ from .forms import PublicationForm,CarruselForm, SchoolForm
 # from publication import Publications
 from publication.models import Publication,Carousel,School
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic import ListView
 import os
 
@@ -215,12 +216,8 @@ def eliminaEscuela(request, id):
     context = {'school': school}
     return render(request, 'eliminarEscuela.html', context)
 
-@login_required(login_url='eduacionapp:login')
+
+@staff_member_required(login_url='eduacionapp:login')
 def adminCenter(request):
-    # all publications sort by desc
-    # all_publications = Publication.objects.all().filter(section='T')
-    # context = {
-    #             'all_publications': all_publications,
-    # }
-    # return render(request, 'adminCenter.html',context)
+    
     return render(request, 'adminCenter.html')
