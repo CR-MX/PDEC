@@ -104,8 +104,8 @@ def edicionCarrusel(request, id):
         form = CarruselForm(request.POST, request.FILES , instance=article)
         if form.is_valid():
             image_path = article.carousel_pic.path
-            if os.path.exists(image_path):
-                os.remove(image_path)
+            # if os.path.exists(image_path):
+            #     os.remove(image_path)
             form.save()
             return redirect('publication_app:carruselAdmin')
     context = {'article': form}
