@@ -6,6 +6,11 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+<style>
+  .sombrita {
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  }
+  </style>
 <main role="main">
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -22,8 +27,8 @@
           <div class="container">
             <div class="carousel-caption text-left">
               {% if school.cp_1_title  %}
-                <h1>{{school.cp_1_title}}</h1>
-                <p>{{school.cp_1_description}}</p>
+                <h1 class="sombrita">{{school.cp_1_title}}</h1>
+                <p class="sombrita">{{school.cp_1_description}}</p>
               {% endif %}
               {% if school.cp_1_linkButon  %}
                 <p><a class="btn btn-lg btn-secondary" href="{{school.cp_1_linkButon}}" role="button">Visitar</a></p>
@@ -39,8 +44,8 @@
         <div class="container">
           <div class="carousel-caption">
             {% if school.cp_2_title  %}
-              <h1>{{school.cp_2_title}}</h1>
-              <p>{{school.cp_2_description}}</p>
+              <h1 class="sombrita">{{school.cp_2_title}}</h1>
+              <p class="sombrita">{{school.cp_2_description}}</p>
             {% endif %}
             {% if school.cp_2_linkButon  %}
             <p><a class="btn btn-lg btn-secondary" href="{{school.cp_2_linkButon}}" role="button">Visitar</a></p>
@@ -56,8 +61,8 @@
         <div class="container">
           <div class="carousel-caption text-right">
             {% if school.cp_3_title  %}
-              <h1>{{school.cp_3_title}}</h1>
-              <p>{{school.cp_3_description}}</p>
+              <h1 class="sombrita">{{school.cp_3_title}}</h1>
+              <p class="sombrita">{{school.cp_3_description}}</p>
             {% endif %}
             {% if school.cp_3_linkButon %}
             <p><a class="btn btn-lg btn-secondary" href="{{school.cp_3_linkButon}}" role="button">Visitar</a></p>
