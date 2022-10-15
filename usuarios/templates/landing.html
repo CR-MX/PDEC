@@ -5,6 +5,11 @@ landing
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+<style>
+  .sombrita {
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  }
+  </style>
 <main role="main">
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -21,8 +26,8 @@ landing
           {% endif %}
           <div class="container">
             <div class="carousel-caption text-left">
-              <h1>{{c_sec_1.title}}</h1>
-              <p>{{c_sec_1.description}}</p>
+              <h1 class="sombrita">{{c_sec_1.title}}</h1>
+              <p class="sombrita">{{c_sec_1.description}}</p>
               {% if c_sec_1.showbuton == 'A'  %}
                 <p><a class="btn btn-lg btn-secondary" href="{{c_sec_1.linkButon}}" role="button">{{c_sec_1.nameButon}}</a></p>
               {% endif %}
@@ -37,8 +42,8 @@ landing
           {% endif %}
         <div class="container">
           <div class="carousel-caption">
-            <h1>{{c_sec_2.title}}</h1>
-            <p>{{c_sec_2.description}}</p>
+            <h1 class="sombrita">{{c_sec_2.title}}</h1>
+            <p class="sombrita">{{c_sec_2.description}}</p>
             {% if c_sec_2.showbuton == 'A'  %}
             <p><a class="btn btn-lg btn-secondary" href="{{c_sec_2.linkButon}}" role="button">{{c_sec_2.nameButon}}</a></p>
             {% endif %}
@@ -53,8 +58,8 @@ landing
           {% endif %}
         <div class="container">
           <div class="carousel-caption text-right">
-            <h1>{{c_sec_3.title}}</h1>
-            <p>{{c_sec_3.description}}</p>
+            <h1 class="sombrita">{{c_sec_3.title}}</h1>
+            <p class="sombrita">{{c_sec_3.description}}</p>
             {% if c_sec_3.showbuton == 'A'  %}
             <p><a class="btn btn-lg btn-secondary" href="{{c_sec_3.linkButon}}" role="button">{{c_sec_3.nameButon}}</a></p>
             {% endif %}
