@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+9lfk=9ic(#1g=s3e!7o-jd2wr@+fh26^fg(#+gwxxp$s(yvuo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -128,7 +128,7 @@ LOGOUT_REDIRECT_URL = 'eduacionapp:landing'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/home/gescacs/PDEC/educacioncuaz/static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
 )
@@ -139,5 +139,4 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/imagesPublications/'
 
-MEDIA_URL = '/imagesPublications/'
-MEDIA_ROOT = '/home/dawer09/blog_project/imagesPublications/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/imagesPublications')
