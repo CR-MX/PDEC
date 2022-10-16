@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+9lfk=9ic(#1g=s3e!7o-jd2wr@+fh26^fg(#+gwxxp$s(yvuo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'usuarios',
-    'publication'
+    'publication',
+    'storages'
 
 ]
 
@@ -137,6 +138,18 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-MEDIA_URL = '/imagesPublications/'
+# MEDIA_URL = '/imagesPublications/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/imagesPublications')
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = 'AKIAWHVSVYWV2TAVMS5O'
+
+AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_STORAGE_BUCKET_NAME = 'educuaz-bucket'
+
+AWS_S3_REGION_NAME = "us-east-2"
+
+AWS_QUERYSTRING_AUTH = 'false'
