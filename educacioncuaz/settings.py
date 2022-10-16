@@ -137,7 +137,7 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-MEDIA_URL = '/imagesPublications/'
 
-MEDIA_URL = '/imagesPublications/'
-MEDIA_ROOT = '/home/dawer09/blog_project/imagesPublications/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/gescacs/PDEC/educacioncuaz/media/'
