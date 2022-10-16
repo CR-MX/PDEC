@@ -9,16 +9,12 @@ from django.views.generic import ListView
 import os
 
 def Publicacion(request, id):
-    # print(id ,args,kwargs)
-    
     article = Publication.objects.get(id=id)
     all_article = Publication.objects.all().order_by('-published')
     all_article = all_article[0:6]
     context = {'article': article, 
                 'all_article':all_article}
-    # print(context)
-    # article = Publication.objects.all()
-    # print(public)
+
     return render(request, 'publicacion.html', context)
 
 @login_required(login_url='eduacionapp:login')
