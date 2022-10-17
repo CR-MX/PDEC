@@ -1,6 +1,6 @@
 {% extends "base_us.html" %}
 {% block title %}
-Registrar Nuevo Usuario
+Crear Publicación
 {% endblock %}
 
 {% block content %}
@@ -111,10 +111,10 @@ Registrar Nuevo Usuario
             <div class="row">
                 
                  <div class="d-flex justify-content-center mt-3 login_container col">
-                    <button type="submit" class="btn btn-success btn-lg btn-block">Crear Publicación</button>
+                    <button type="submit" class="btn btn-success btn btn-block">Crear Publicación</button>
                 </div>
                <div class="d-flex justify-content-center mt-3 login_container col">
-                    <a href="{% url 'publication_app:publicationAdmin' %}" class="stylishA">Cancelar</a>
+                    <a class="btn  btn-danger col" href="{% url 'publication_app:publicationAdmin' %}"role="button">Cancelar</a>
                 </div>
             </div>
             
