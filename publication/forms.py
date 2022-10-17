@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Publication,Carousel, School
+from .models import Publication,Carousel,School
 
 class PublicationForm(forms.ModelForm):
     class Meta:

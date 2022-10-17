@@ -188,6 +188,26 @@
   </div>
   <!-- /Termina Tercera seccion -->
 
+  <div class="container">
+    <section class="mb-5">
+      {% if school.file1 or school.file2 or school.file3 %}
+        <hr>
+        <p>Archivos adjuntos</p>
+        {% if school.file1 %}
+        <a class="fs-5 mb-4" href="{{school.file1.url}}"
+            target="_blank">{{school.file1}}</a>
+        {% endif %}
+        {% if school.file2 %}
+        <a class="fs-5 mb-4" href="{{school.file2.url}}"
+            target="_blank">{{school.file2}}</a>
+        {% endif %}
+        {% if school.file3 %}
+        <a class="fs-5 mb-4" href="{{school.file3.url}}"
+            target="_blank">{{school.file3}}</a>
+        {% endif %}
+      {% endif %}
+  </section>
+
 </main>
 {% endblock %}
 
