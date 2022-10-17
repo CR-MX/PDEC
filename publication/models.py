@@ -22,6 +22,16 @@ class Publication(models.Model):
                 ('T','Tercera_Section')
                 )
     section = models.CharField(max_length=1, choices=section_p, blank=True, default='n')
+    Universidad =(
+                ('n','none'),
+                ('1','Universidad_1'),
+                ('2','Universidad_2'),
+                ('3','Universidad_3'),
+                ('4','Universidad_4'),
+                ('5','Universidad_5'),
+                ('6','Universidad_6')
+                )
+    Universidad = models.CharField(max_length=1, choices=Universidad, blank=True, default='n')
     published = models.DateField(auto_now_add=True)
     file1 = models.FileField(null=True,blank=True)
     file2 = models.FileField(null=True,blank=True)
@@ -59,7 +69,16 @@ class School(models.Model):
      direction=models.CharField(max_length=500)
      urlSite = models.CharField(max_length=500)
      miniature_pic = models.ImageField(null=True,blank=True)
-
+     Universidad =(
+                ('n','none'),
+                ('1','Universidad_1'),
+                ('2','Universidad_2'),
+                ('3','Universidad_3'),
+                ('4','Universidad_4'),
+                ('5','Universidad_5'),
+                ('6','Universidad_6')
+                )
+     Universidad = models.CharField(max_length=1, choices=Universidad, blank=True, default='n')
      carrusel_pic_1 = models.ImageField(null=True,blank=True)
      cp_1_title  = models.CharField(max_length=250, null=True, blank=True)
      cp_1_description  = models.TextField(max_length=500, null=True, blank=True)

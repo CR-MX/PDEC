@@ -153,7 +153,24 @@ def edicionEscuela(request, id):
 
 def schoolView(request, id):
     school = School.objects.get(id=id)
-    context = {'school': school}
+    
+    # second section img rectangle speccific  1, 2, 3
+    s_sec1 = Publication.objects.all().filter(Universidad=school.Universidad, section='1')
+    s_sec1 = s_sec1[0:1]
+    s_sec2 = Publication.objects.all().filter(Universidad=school.Universidad, section='2')
+    s_sec2 = s_sec2[0:1]
+    s_sec3 = Publication.objects.all().filter(Universidad=school.Universidad, section='3')
+    s_sec3 = s_sec3[0:1]
+    # third section img square
+    t_sec = Publication.objects.all().filter( Universidad=school.Universidad, section='T')
+    t_sec = t_sec[0:3]
+    context = {'school': school,
+                's_sec1': s_sec1,
+                's_sec2': s_sec2,
+                's_sec3': s_sec3,
+                't_sec': t_sec
+                }
+
     #print(context)
     # article = Publication.objects.all()
     # print(public)
