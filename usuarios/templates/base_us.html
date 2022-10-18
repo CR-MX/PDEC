@@ -15,7 +15,15 @@
       </div>
   </a>
   {% else %}
-  <a class="navbar-brand" href="{% url 'eduacionapp:landing'%}"><div class="logo-image"><img src="{% static 'images/logo_uaz.png'%}" class="img-fluid"></div></a>
+  <a class="navbar-brand" href="{% url 'eduacionapp:landing'%}">
+    <div class="logo-image">
+      <img src="{% static 'images/acs.jpeg'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
+      <img src="{% static 'images/medicina.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
+      <img src="{% static 'images/enfer.jpeg'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
+      <img src="{% static 'images/odonto.jpeg'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
+      <img src="{% static 'images/cq.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
+    </div>
+</a>
   
   {% endif %} <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barranavegacion"
     aria-expanded="false" aria-controls="barranavegacion" aria-label="Toggle navigation">
