@@ -2,25 +2,25 @@
 {% block navbar %}
 
 {% load static %}
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #2f95a7">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #001447">
   {% if user.is_authenticated %}
 
   <a class="navbar-brand" href="{% url 'eduacionapp:landing'%}">
       <div class="logo-image">
-        <img src="{% static 'images/acs.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
+        <img src="{% static 'images/acs.jpeg'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
         <img src="{% static 'images/medicina.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
-        <img src="{% static 'images/enfer.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
-        <img src="{% static 'images/odonto.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
+        <img src="{% static 'images/enfer.jpeg'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
+        <img src="{% static 'images/odonto.jpeg'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
         <img src="{% static 'images/cq.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
       </div>
   </a>
   {% else %}
   <a class="navbar-brand" href="{% url 'eduacionapp:landing'%}">
     <div class="logo-image">
-      <img src="{% static 'images/acs.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
+      <img src="{% static 'images/acs.jpeg'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
       <img src="{% static 'images/medicina.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
-      <img src="{% static 'images/enfer.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
-      <img src="{% static 'images/odonto.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
+      <img src="{% static 'images/enfer.jpeg'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
+      <img src="{% static 'images/odonto.jpeg'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
       <img src="{% static 'images/cq.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
     </div>
 </a>
@@ -51,7 +51,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{% url 'publication_app:adminCenter' %} ">Centro de administración</a></li>
-          <!-- <li class="breadcrumb-item"><a href=" ">Actualizar información</a></li> -->
+          <li class="breadcrumb-item"><a href=" ">Actualizar información</a></li>
           <li class="breadcrumb-item"><a href="{% url 'eduacionapp:logout' %}?next={% url 'eduacionapp:login' %}">Cerrar
               Sesión</a></li>
         </ol>
@@ -60,7 +60,7 @@
     {% endif %}
     {% else %}
     <li>
-      <!-- <a class="text-blue" href="{% url 'eduacionapp:login' %}?next={{request.path}}">Iniciar sesión</a> -->
+      <a class="text-white" href="{% url 'eduacionapp:login' %}?next={{request.path}}">Iniciar sesión</a>
     </li>
     {% endif %}
   </ul>
