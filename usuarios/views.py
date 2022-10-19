@@ -31,7 +31,7 @@ class Register(CreateView):
 class Login(LoginView):
     template_name = 'login.html'
     form_class = AuthenticationForm
-    success_url = reverse_lazy('eduacionapp:admin')
+    success_url = reverse_lazy('eduacionapp:adminCenter')
 
 #Esta clase es para organizar el contenido base de la plataforma web
 @login_required(login_url='eduacionapp:login')
