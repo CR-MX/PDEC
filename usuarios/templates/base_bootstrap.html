@@ -41,9 +41,8 @@
         </header>
         {% block content %}{% endblock %}
         <!-- pie de pagina  -->
-            <footer class="card-footer text-center text-white fixed-bottom" style="background-color: #222">
-                <p class="small"> &copy; Desarrollado por el Laboratorio Universitario de Innovación, bajo la Licencia General Public License 3.0</p>
-                <p class="small"><a href="{% url 'eduacionapp:login' %}?next={{request.path}}">2022 Ciencias de la Salud</a></p>
+            <footer class="footer text-center text-white  fixed-bottom" style="background-color: #222">
+                <p class="small"><a href="{% url 'eduacionapp:login' %}?next={{request.path}}">&copy; Desarrollado por el Laboratorio Universitario de Innovación, bajo la Licencia General Public License 3.0</a></p>
             </footer>
         <!-- fin de pie de pagina  -->
         <!-- dibujado de datatable -->
