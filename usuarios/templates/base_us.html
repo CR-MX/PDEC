@@ -5,20 +5,16 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #2f95a7">
   {% if user.is_authenticated %}
 
-  <!-- <style>
-    .navbar {
-      position: relative;
-  }
-  .brand {
-      position: absolute;
-      left: 50%;
-      margin-left: -50px !important;  /* 50% of your logo width */
-      display: block;
-  }
+  <style>
+    .navbar-brand {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+}
     
-  </style> -->
+  </style>
   <!-- <a class="navbar-brand" href="{% url 'eduacionapp:landing'%}"> -->
-      <div class="logo-image">
+      <div class="logo-image navbar-brand">
         <img src="{% static 'images/logo_uaz.png'%}" alt="Generic placeholder image" class="rounded">
         <img src="{% static 'images/medicina.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
         <img src="{% static 'images/enfer.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
@@ -29,7 +25,7 @@
   <!-- </a> -->
   {% else %}
   <!-- <a class="navbar-brand" href="{% url 'eduacionapp:landing'%}"> -->
-    <div class="logo-image">
+    <div class="logo-image .navbar-brand">
       <img src="{% static 'images/logo_uaz.png'%}" alt="Generic placeholder image" class="rounded">
       <img src="{% static 'images/medicina.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
       <img src="{% static 'images/enfer.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
