@@ -5,7 +5,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #2f95a7">
   {% if user.is_authenticated %}
 
-  <style>
+  <!-- <style>
     .navbar {
       position: relative;
   }
@@ -16,8 +16,8 @@
       display: block;
   }
     
-  </style>
-  <a class="navbar-brand" href="{% url 'eduacionapp:landing'%}">
+  </style> -->
+  <!-- <a class="navbar-brand" href="{% url 'eduacionapp:landing'%}"> -->
       <div class="logo-image">
         <img src="{% static 'images/logo_uaz.png'%}" alt="Generic placeholder image" class="rounded">
         <img src="{% static 'images/medicina.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
@@ -26,9 +26,9 @@
         <img src="{% static 'images/cq.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
         <img src="{% static 'images/acs.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
       </div>
-  </a>
+  <!-- </a> -->
   {% else %}
-  <a class="navbar-brand" href="{% url 'eduacionapp:landing'%}">
+  <!-- <a class="navbar-brand" href="{% url 'eduacionapp:landing'%}"> -->
     <div class="logo-image">
       <img src="{% static 'images/logo_uaz.png'%}" alt="Generic placeholder image" class="rounded">
       <img src="{% static 'images/medicina.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
@@ -37,7 +37,7 @@
       <img src="{% static 'images/cq.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
       <img src="{% static 'images/acs.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
     </div>
-</a>
+<!-- </a> -->
   
   {% endif %} <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barranavegacion"
     aria-expanded="false" aria-controls="barranavegacion" aria-label="Toggle navigation">
