@@ -7,10 +7,10 @@
 
   <style>
     .navbar-brand {
-      position: absolute;
-    left: 50%;
-    margin-left: -90px;  /* 50% of your logo width */
-    display: block
+      transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+  width: 100px;
 }
     
   </style>
@@ -26,7 +26,7 @@
   <!-- </a> -->
   {% else %}
   <!-- <a class="navbar-brand" href="{% url 'eduacionapp:landing'%}"> -->
-    <div class="logo-image navbar-brand">
+    <div class="logo-image .navbar-brand">
       <img src="{% static 'images/logo_uaz.png'%}" alt="Generic placeholder image" class="rounded">
       <img src="{% static 'images/medicina.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
       <img src="{% static 'images/enfer.png'%}" alt="Generic placeholder image" width="90" height="90" class="rounded">
