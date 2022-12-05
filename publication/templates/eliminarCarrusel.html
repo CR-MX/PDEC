@@ -1,0 +1,49 @@
+{% extends "base_us.html" %}
+
+{% block title %}
+Borrar Carrusel
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<div class="app-card app-card-orders-table shadow-sm mb-5">
+  <br>
+  <br>
+  <h1>Eliminar Carrusel</h1>
+  <div class="container card mb-3" style="width: 30rem;">
+    <div class="sign-form ">
+      <h3>¿Desea eliminar este elemento de la lista de carrusel?</h3>
+      {% if carrusel.carousel_pic %}
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex flex-column align-items-center text-center">
+            <img src="{{carrusel.carousel_pic.url}}" alt="Admin" width="250">
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <table class="table">
+        <thead>
+          <th>Título</th>
+          <th>Descripción</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{carrusel.title}}</td>
+            <td>{{carrusel.description}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <form method="post" class="order-form">
+
+            <p><input class="btn btn-danger btn-sm" type="submit" value="Confirm"></p>
+            <a href="{% url 'publication_app:carruselAdmin' %}" class="btn btn-outline-primary">Cancelar</a>
+
+        {% csrf_token %}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

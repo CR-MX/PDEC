@@ -1,0 +1,46 @@
+{% extends "base_us.html" %}
+{% block title %}
+Publicaciones
+
+{% endblock %}
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+<div class="container-fluid p-4 my-3">
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+        <div class=" px-0">
+            <h1 class="display-4 font-italic">Publicaciones</h1>
+        </div>
+    </div>
+    <div class="album py-5 bg-light">
+    <div class="row">
+
+        {% for article in all_publications %}
+        <div class="col-md-3 zoom">
+            <div class="card mb-4 box-shadow">
+                {% if article.miniature_pic %}
+                <img class="card-img-top" src="{{article.miniature_pic.url}}" alt="Card image cap" width="300" height="220">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{article.title}}</h5>
+                    <p class="card-text">{{article.description|truncatewords:"19"}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-primary"><a href="{% url 'publication_app:publication' article.id %}">Visitar</a> </button>
+                        </div>
+                        <small class="text-muted blog-post-meta"> {{article.published}} por <a href="#">{{article.author}}</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+</div>
+{% endblock %}

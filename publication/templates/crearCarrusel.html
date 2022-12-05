@@ -1,0 +1,82 @@
+{% extends "base_us.html" %}
+{% block title %}
+Carrusel
+{% endblock %}
+'', '', '', '', '', '', 'linkButon'
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container card mb-3">
+    <div class="sign-form ">
+        <br>      
+        <form enctype="multipart/form-data" method="post" class="post-form"> {% csrf_token %}
+            <h1>Crear carrusel</h1>
+            <br>
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                    <span class="input-group-text">Título:</span>
+                </div>
+                {{ form.title}}
+            </div>
+            <div class="input-group mb-3 ">
+                <div class="input-group-append">
+                    <span class="input-group-text">Descripción:</span>
+                </div>
+                {{ form.description}}
+            </div>
+            
+            <div class="input-group mb-3">
+                <div class="input-group-append">
+                    <span input type="file">Foto del carrusel:</span>
+                </div>
+                {{ form.carousel_pic}}
+            </div>
+
+            <div class="row">
+                
+                <div class="input-group mb-3 col">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Orden Publicación:</span>
+                    </div>
+                    {{ form.ordenPublication}}
+                </div>
+                <div class="input-group mb-3 col">
+                    <div class="input-group-append">
+                        <span class="input-group-text" >Mostrar Botón:</span>
+                    </div>
+                    {{ form.showbuton}}
+                </div>
+
+            </div>
+            
+            <div class="row">
+                
+                <div class="input-group mb-3 col">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Nombre Botón</span>
+                    </div>
+                    {{ form.nameButon}}
+                </div>
+                <div class="input-group mb-3 col">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Link Botón 2:</span>
+                    </div>
+                    {{ form.linkButon}}
+                </div>
+
+            </div>
+
+            <div class="d-flex justify-content-center mt-3 login_container row">
+                <button type="submit" class="btn btn-success btn btn-block col">Guardar Carrusel</button>
+                <a class="btn  btn-danger col" href="{% url 'publication_app:carruselAdmin' %}"role="button">Cancelar</a>
+            </div>
+        </form>
+<br>
+<br>
+<br>
+    </div>
+</div>
+{% endblock %}
