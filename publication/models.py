@@ -128,3 +128,11 @@ class PlanDeTrabajo(models.Model):
     file1 = models.FileField(null=True,blank=True)
     Activo =(('S','Si'),('N','No'))
     Activo = models.CharField(max_length=1, choices=Activo, blank=True, default='N')
+class Reglamento(models.Model):
+    title = models.CharField(max_length=250)
+    author = models.CharField(max_length=250)
+    content1 = models.TextField(max_length=2000, null=True, blank=True)
+    pic = models.ImageField(null=True,blank=True)
+    file1 = models.FileField(null=True,blank=True)
+    Activo =(('S','Si'),('N','No'))
+    Activo = models.CharField(max_length=1, choices=Activo, blank=True, default='N')

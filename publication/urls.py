@@ -47,6 +47,16 @@ urlpatterns = [
     path('preObjetivo/<int:id>/', views.preObjetivo, name='preObjetivo'),
     path('preMision/<int:id>/', views.preMision, name='preMision'),
     path('prePlanDeTrabajo/<int:id>/', views.prePlanDeTrabajo, name='prePlanDeTrabajo'),
+    # Reglamento'
+    path('crearReglamento/', views.crearReglamento, name='crearReglamento'),
+    path('indexReglamento/',views.indexReglamento, name='indexReglamento'),
+    path('editReglamento/<int:id>/',views.editReglamento, name='editReglamento'),
+    path('eliminarReglamento/<int:id>/', views.eliminarReglamento, name='eliminarReglamento'),
+    path('navReglamento/', views.navReglamento, name='navReglamento'),
+    path('preReglamento/<int:id>/', views.preReglamento, name='preReglamento'),
+
+
+
 ] 
 
 # urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

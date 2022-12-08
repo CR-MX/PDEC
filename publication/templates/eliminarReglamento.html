@@ -1,7 +1,7 @@
 {% extends "base_us.html" %}
 
 {% block title %}
-Borrar Objetivo
+Borrar Reglamentación del ACS
 {% endblock %}
 
 {% block content %}
@@ -15,7 +15,7 @@ Borrar Objetivo
   <div class="container d-flex justify-content-center">
     <div class="card">
       <div class="card-header">
-        <h2>Eliminar Objetivo</h2>
+        <h2>Eliminar Reglamentación del ACS</h2>
       </div>
       <div class="card-body " style="width: 30rem;">
         <div>
@@ -44,7 +44,7 @@ Borrar Objetivo
                 <input class="btn btn-danger btn-sm" type="submit" value="Confirm">
               </span>
               <span class="p-2">
-                <a href="{% url 'publication_app:indexObjetivo' %}" class="btn btn-primary btn-sm">Cancelar</a>
+                <a href="{% url 'publication_app:indexReglamento' %}" class="btn btn-primary btn-sm">Cancelar</a>
               </span>
             </div>
             {% csrf_token %}

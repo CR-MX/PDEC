@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import MisionForm, PlanDeTrabajoForm, PublicationForm,CarruselForm, SchoolForm, ObjetivoForm
+from .forms import MisionForm, PlanDeTrabajoForm, PublicationForm,CarruselForm, ReglamentoForm, SchoolForm, ObjetivoForm
 
 # from publication import Publications
-from publication.models import Publication, Carousel, School, Objetivo, Mision, PlanDeTrabajo
+from publication.models import Publication, Carousel, Reglamento, School, Objetivo, Mision, PlanDeTrabajo
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic import ListView
@@ -382,6 +382,69 @@ def preMision(request, id):
 
 def prePlanDeTrabajo(request, id):
     article = PlanDeTrabajo.objects.get(id=id)
+    all_article = Publication.objects.all().order_by('-published')
+    all_article = all_article[0:6]
+    context = {'article': article, 
+                'all_article':all_article}
+
+    return render(request, 'vistasNav.html', context)
+# Reglamentación ----------------------------------------------------------------------------------------------------------------
+@staff_member_required(login_url='eduacionapp:login')
+def indexReglamento(request):
+    regalamento = Reglamento.objects.all()
+    context = {
+                'regalamento': regalamento,
+    }
+    return render(request, 'indexReglamento.html',context)
+
+@login_required(login_url='eduacionapp:login')
+def crearReglamento(request):
+    if request.method == "POST":
+        form = ReglamentoForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            print(post)
+            post.save()
+            return redirect('publication_app:indexReglamento')
+    else:
+        form =ReglamentoForm()
+    return render(request, 'crearReglamento.html', {'form': form})
+
+@login_required(login_url='eduacionapp:login')
+def editReglamento(request, id):
+    article =Reglamento.objects.get(id=id)
+    form = ReglamentoForm(instance=article)
+    if request.method == 'POST':
+        form = ReglamentoForm(request.POST, request.FILES , instance=article)
+        if form.is_valid():
+            form.save()
+            return redirect('publication_app:indexReglamento')
+    context = {'form': form}
+    return render(request, 'crearReglamento.html', context)
+
+@login_required(login_url='eduacionapp:login')
+def eliminarReglamento(request, id):
+    regalamento = Reglamento.objects.get(id=id)
+    if request.method == "POST":
+        regalamento.delete()
+        return redirect('publication_app:indexReglamento')
+
+    context = {'publication': regalamento}
+    return render(request, 'eliminarReglamento.html', context)
+
+def navReglamento(request):
+    article = Reglamento.objects.all().filter(Activo='S').first()
+    all_article = Publication.objects.all().order_by('-published')
+    all_article = all_article[0:6]
+    context = {
+        'article': article, 
+        'all_article':all_article
+    }
+    return render(request, 'vistasNav.html', context)
+# creacion ----------------------------------------------------------------------------------------------------------------------
+
+def preReglamento(request, id):
+    article = Reglamento.objects.get(id=id)
     all_article = Publication.objects.all().order_by('-published')
     all_article = all_article[0:6]
     context = {'article': article, 

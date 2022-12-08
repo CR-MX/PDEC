@@ -1,7 +1,8 @@
 {% extends "base_us.html" %}
 {% block title %}
-Carrusel
+Crear Reglamentación del ACS
 {% endblock %}
+
 {% block content %}
 <br>
 <br>
@@ -12,46 +13,34 @@ Carrusel
 <div class="container d-flex justify-content-center">
     <div class="card">
         <div class="card-header">
-            <h2>Crear carrusel</h2>
+            <h2>Crear Reglamentación del ACS</h2>
         </div>
-
         <div class="card-body " style="width: 40rem;">
 
-            <form enctype="multipart/form-data" method="post" class="post-form"> {% csrf_token %}
-
+            <form enctype="multipart/form-data" method="post" class="post-form">
                 <div class="form-group p-2">
-                    <label>Título:</label>
+                    <label>Titulo:</label>
                     {{ form.title}}
                 </div>
                 <div class="form-group p-2">
-                    <label>Descripción:</label>
-                    {{ form.description}}
-                </div>
-
-                <div class="form-group p-2">
-                    <label>Foto del carrusel:</label>
-                    {{ form.carousel_pic}}
-                </div>
-
-
-                <div class="form-group p-2">
-                    <label>Orden Publicación:</label>
-                    {{ form.ordenPublication}}
+                    <label>Autor:</label>
+                    {{ form.author}}
                 </div>
                 <div class="form-group p-2">
-                    <label>Mostrar Botón:</label>
-                    {{ form.showbuton}}
-                </div>
-
-
-
-                <div class="form-group p-2">
-                    <label>Nombre Botón</label>
-                    {{ form.nameButon}}
+                    <label>Contenido 1:</label>
+                    {{ form.content1}}
                 </div>
                 <div class="form-group p-2">
-                    <label>Link Botón 2:</label>
-                    {{ form.linkButon}}
+                    <label>Activo:</label>
+                    {{ form.Activo}}
+                </div>
+                <div class="form-group p-2">
+                    <label>Imagen Publicación:</label>
+                    {{ form.pic}}
+                </div>
+                <div class="form-group p-2">
+                    <label>Archivo:</label>
+                    {{ form.file1}}
                 </div>
 
 
@@ -60,12 +49,11 @@ Carrusel
                         <input class="btn btn-danger " type="submit" value="Confirm">
                     </span>
                     <span class="p-2">
-                        <a href="{% url 'publication_app:carruselAdmin' %}" class="btn btn-primary">Cancelar</a>
+                        <a href="{% url 'publication_app:indexReglamento' %}" class="btn btn-primary">Cancelar</a>
                     </span>
                 </div>
                 {% csrf_token %}
             </form>
-
         </div>
     </div>
 </div>

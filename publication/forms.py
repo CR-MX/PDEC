@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Publication,Carousel,School, Objetivo, Mision, PlanDeTrabajo
+from .models import Publication,Carousel,School, Objetivo, Mision, PlanDeTrabajo, Reglamento
 
 class PublicationForm(forms.ModelForm):
     class Meta:
@@ -75,6 +75,16 @@ class MisionForm(forms.ModelForm):
 class PlanDeTrabajoForm(forms.ModelForm):
     class Meta:
         model = PlanDeTrabajo
+        fields = "__all__"
+        
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+            'content1': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+        }
+class ReglamentoForm(forms.ModelForm):
+    class Meta:
+        model = Reglamento
         fields = "__all__"
         
         widgets = {
