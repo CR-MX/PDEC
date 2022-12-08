@@ -1,7 +1,7 @@
 {% extends "base_us.html" %}
 
 {% block title %}
-Borrar Carrusel
+Borrar Objetivo
 {% endblock %}
 
 {% block content %}
@@ -11,26 +11,27 @@ Borrar Carrusel
 <div class="app-card app-card-orders-table shadow-sm mb-5">
   <br>
   <br>
+  <br>
   <div class="container d-flex justify-content-center">
     <div class="card">
       <div class="card-header">
-        <h2>Eliminar carrusel</h2>
+        <h2>Eliminar Objetivo</h2>
       </div>
       <div class="card-body " style="width: 30rem;">
         <div>
-          <h3>¿Desea eliminar este elemento?</h3>
+          <h4>¿Desea eliminar este elemento?</h4>
         </div>
 
         <div>
           <table class="table">
             <thead>
               <th>Título</th>
-              <th>Descripción</th>
+              <th>Autor</th>
             </thead>
             <tbody>
               <tr>
-                <td>{{carrusel.title}}</td>
-                <td>{{carrusel.description}}</td>
+                <td>{{publication.title}}</td>
+                <td>{{publication.author}}</td>
               </tr>
             </tbody>
           </table>
@@ -43,7 +44,7 @@ Borrar Carrusel
                 <input class="btn btn-danger btn-sm" type="submit" value="Confirm">
               </span>
               <span class="p-2">
-                <a href="{% url 'publication_app:carruselAdmin' %}" class="btn btn-primary btn-sm">Cancelar</a>
+                <a href="{% url 'publication_app:publicationAdmin' %}" class="btn btn-primary btn-sm">Cancelar</a>
               </span>
             </div>
             {% csrf_token %}

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import PublicationForm,CarruselForm, SchoolForm
+from .forms import MisionForm, PlanDeTrabajoForm, PublicationForm,CarruselForm, SchoolForm, ObjetivoForm
 
 # from publication import Publications
-from publication.models import Publication,Carousel,School
+from publication.models import Publication, Carousel, School, Objetivo, Mision, PlanDeTrabajo
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic import ListView
@@ -69,7 +69,7 @@ def edicionPublication(request, id):
         if form.is_valid():
             form.save()
             return redirect('publication_app:publicationAdmin')
-    context = {'article': form}
+    context = {'form': form}
     return render(request, 'editarPublicacion.html', context)
 
 
@@ -101,7 +101,7 @@ def edicionCarrusel(request, id):
         if form.is_valid():
             form.save()
             return redirect('publication_app:carruselAdmin')
-    context = {'article': form}
+    context = {'form': form}
     return render(request, 'editarCarrusel.html', context)
 
 @login_required(login_url='eduacionapp:login')
@@ -192,9 +192,199 @@ def eliminaEscuela(request, id):
 def adminCenter(request):
     
     return render(request, 'adminCenter.html')
+# crear cosas---------------------------------------------------------------
+@login_required(login_url='eduacionapp:login')
+def crearObjetivo(request):
+    if request.method == "POST":
+        form = ObjetivoForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            print(post)
+            post.save()
+            return redirect('publication_app:indexObjetivo')
+    else:
+        form = ObjetivoForm()
+    return render(request, 'crearObjetivo.html', {'form': form})
+    
+@login_required(login_url='eduacionapp:login')
+def crearMision(request):
+    print(request.method)    
+    if request.method == "POST":
+        form = MisionForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('publication_app:publicationAdmin')
+            
+    else:
+        form = MisionForm()
+    return render(request, 'crearMision.html', {'form': form})
+    
+@login_required(login_url='eduacionapp:login')
+def crearPlanDeTrabajo(request):
+    if request.method == "POST":
+        form = PlanDeTrabajoForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('publication_app:publicationAdmin')
+            
+    else:
+        form = PlanDeTrabajoForm()
+    return render(request, 'crearPlanDeTrabajo.html', {'form': form})
 
+# vistas en las que mostramos los datos ----------------------------------------------------
 
+@staff_member_required(login_url='eduacionapp:login')
+def indexObjetivo(request):
+    objetivos = Objetivo.objects.all()
+    context = {
+                'objetivos': objetivos,
+    }
+    return render(request, 'indexObjetivo.html',context)
 
+@staff_member_required(login_url='eduacionapp:login')
+def indexMision(request):
+    misiones = Mision.objects.all()
+    context = {
+                'misiones': misiones,
+    }
+    return render(request, 'indexMision.html',context)
 
+@staff_member_required(login_url='eduacionapp:login')
+def indexPlanDeTrabajo(request):
+    planesDeTrabajo = PlanDeTrabajo.objects.all()
+    print(planesDeTrabajo)
+    context = {
+                'planesDeTrabajo': planesDeTrabajo,
+    }
+    return render(request, 'indexPlanDeTrabajo.html',context)
+# edit to new 3 -----------------------------------------------------------------------------
+@login_required(login_url='eduacionapp:login')
+def editObjetivo(request, id):
+    article =Objetivo.objects.get(id=id)
+    form = ObjetivoForm(instance=article)
+    if request.method == 'POST':
+        form = ObjetivoForm(request.POST, request.FILES , instance=article)
+        if form.is_valid():
+            form.save()
+            return redirect('publication_app:indexObjetivo')
+    context = {'form': form}
+    return render(request, 'crearObjetivo.html', context)
 
+@login_required(login_url='eduacionapp:login')
+def editMision(request, id):
+    article =Mision.objects.get(id=id)
+    form = MisionForm(instance=article)
+    if request.method == 'POST':
+        form = MisionForm(request.POST, request.FILES , instance=article)
+        if form.is_valid():
+            form.save()
+            return redirect('publication_app:indexMision')
+    context = {'form': form}
+    return render(request, 'crearMision.html', context)
 
+@login_required(login_url='eduacionapp:login')
+def editPlanDeTrabajo(request, id):
+    article =PlanDeTrabajo.objects.get(id=id)
+    form = PlanDeTrabajoForm(instance=article)
+    if request.method == 'POST':
+        form = PlanDeTrabajoForm(request.POST, request.FILES , instance=article)
+        if form.is_valid():
+            form.save()
+            return redirect('publication_app:indexPlanDeTrabajo')
+    context = {'form': form}
+    return render(request, 'crearPlanDeTrabajo.html', context)
+
+# Eliminar las mismas cosas --------------------------------------------------------------------
+
+@login_required(login_url='eduacionapp:login')
+def eliminarObjetivo(request, id):
+    objetivo = Objetivo.objects.get(id=id)
+    if request.method == "POST":
+        objetivo.delete()
+        return redirect('publication_app:indexObjetivo')
+
+    context = {'publication': objetivo}
+    return render(request, 'eliminarObjetivo.html', context)
+
+@login_required(login_url='eduacionapp:login')
+def eliminarMision(request, id):
+    publication = Mision.objects.get(id=id)
+    if request.method == "POST":
+        publication.delete()
+        return redirect('publication_app:indexMision')
+
+    context = {'publication': publication}
+    return render(request, 'eliminarMision.html', context)
+
+@login_required(login_url='eduacionapp:login')
+def eliminarPlanDeTrabajo(request, id):
+    publication = PlanDeTrabajo.objects.get(id=id)
+    if request.method == "POST":
+        publication.delete()
+        return redirect('publication_app:indexPlanDeTrabajo')
+
+    context = {'publication': publication}
+    return render(request, 'eliminarPlanDeTrabajo.html', context)
+# nav --------------------------------------
+
+def navObjetivo(request):
+    article = Objetivo.objects.all().filter(Activo='S').first()
+    all_article = Publication.objects.all().order_by('-published')
+    all_article = all_article[0:6]
+    context = {
+        'article': article, 
+        'all_article':all_article
+    }
+    return render(request, 'vistasNav.html', context)
+
+def navMision(request):
+    article = Mision.objects.all().filter(Activo='S').first()
+
+    all_article = Publication.objects.all().order_by('-published')
+    all_article = all_article[0:6]
+    context = {
+        'article': article, 
+        'all_article':all_article
+    }
+    return render(request, 'vistasNav.html', context)
+    
+def navPlanDeTrabajo(request):
+    article = PlanDeTrabajo.objects.all().filter(Activo='S').first()
+    all_article = Publication.objects.all().order_by('-published')
+    all_article = all_article[0:6]
+    context = {
+        'article': article, 
+        'all_article':all_article
+    }
+    return render(request, 'vistasNav.html', context)
+
+    # previsualizar las cosas
+
+def preObjetivo(request, id):
+    article = Objetivo.objects.get(id=id)
+    all_article = Publication.objects.all().order_by('-published')
+    all_article = all_article[0:6]
+    context = {'article': article, 
+                'all_article':all_article}
+
+    return render(request, 'vistasNav.html', context)
+
+def preMision(request, id):
+    article = Mision.objects.get(id=id)
+    all_article = Publication.objects.all().order_by('-published')
+    all_article = all_article[0:6]
+    context = {'article': article, 
+                'all_article':all_article}
+
+    return render(request, 'vistasNav.html', context)
+
+def prePlanDeTrabajo(request, id):
+    article = PlanDeTrabajo.objects.get(id=id)
+    all_article = Publication.objects.all().order_by('-published')
+    all_article = all_article[0:6]
+    context = {'article': article, 
+                'all_article':all_article}
+
+    return render(request, 'vistasNav.html', context)

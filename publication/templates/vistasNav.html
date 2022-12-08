@@ -1,0 +1,85 @@
+{% extends "base_us.html" %}
+{% block title %}
+{{article.title}}
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <article>
+                <div class="card">
+
+                    <div class="card-header">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">{{article.title}}</h1>
+                        <!-- Post meta content-->
+                    </div>
+                    <div class="card-body">
+                        <div class="text-muted fst-italic mb-2">Publicado el {{article.published}} por {{article.author}}</div>
+                        
+                        <figure class="mb-4">
+                            {% if article.pic %}
+                            <img class="card-img-top border-primary" src="{{article.pic.url}}" width="900" height="400">
+                            {% else %}
+                            <img class="img-fluid rounded" src=" https://dummyimage.com/900x400/ced4da/6c757d.jpg">
+                            {% endif %}
+                        </figure>
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">{{article.content1}}</p>
+                        </section>
+                        <section class="mb-5">
+                            {% if article.file1 %}
+                            <hr>
+                            <a class="fs-5 mb-4" href="{{article.file1.url}}" target="_blank">{{article.file1}}</a>
+                            {% endif %}
+                        </section>
+
+                    </div>
+                </div>
+
+
+
+            </article>
+        </div><!-- /.blog-post -->
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-header">Atajos</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="{% url 'eduacionapp:landing' %}">Inicio</a></li>
+                                <li><a href="{% url 'publication_app:allPublications' %}">Publicaciones</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">Últimas publicaciones</div>
+                <div class="card-body">
+                    <div>
+                        <ul class="list-unstyled mb-0">
+                            {% for article in all_article %}
+                            <li><a href="{% url 'publication_app:publication' article.id %}">{{article.title}}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.row -->
+    <br>
+    <br>
+    <br>
+    {% endblock %}

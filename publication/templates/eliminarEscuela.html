@@ -1,46 +1,56 @@
 {% extends "base_us.html" %}
 
 {% block title %}
-Borrar escuela
+Borrar Escuela
 {% endblock %}
 
 {% block content %}
 <br>
 <br>
+<br>
 <div class="app-card app-card-orders-table shadow-sm mb-5">
   <br>
   <br>
-  <h1>Eliminar escuela</h1>
-  <div class="container card mb-3" style="width: 30rem;">
-    <div class="sign-form ">
-      <h3>¿Desea eliminar este elemento de la lista de escuelas?</h3>
-      {% if school.logo_pic %}
-      <div class="card">
-        <div class="card-body">
-          <div class="d-flex flex-column align-items-center text-center">
-            <img src="{{school.logo_pic.url}}" alt="Admin" width="150">
-          </div>
-        </div>
+  <div class="container d-flex justify-content-center">
+    <div class="card">
+      <div class="card-header">
+        <h2>Eliminar Escuela</h2>
       </div>
-      {% endif %}
+      <div class="card-body " style="width: 30rem;">
+        <div>
+          <h4>¿Desea eliminar este elemento?</h4>
+        </div>
 
-      <table class="table">
-        <thead>
-          <th>Carrera</th>
-          <th>Unidad Académica</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{school.nombreCarrera}}</td>
-            <td>{{school.UnidadAcademica}}</td>
-          </tr>
-        </tbody>
-      </table>
-      <form method="post" class="order-form">
-        <p><input class="btn btn-danger btn-sm" type="submit" value="Confirm"></p>
-        <a href="{% url 'publication_app:escuelaAdmin' %}" class="btn btn-outline-primary ">Cancelar</a>
-        {% csrf_token %}
-      </form>
+        <div>
+          <table class="table">
+            <thead>
+              <th>Carrera</th>
+              <th>Unidad Académica</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{school.nombreCarrera}}</td>
+                <td>{{school.UnidadAcademica}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <form method="post" class="order-form">
+            <div class=" d-flex justify-content-center">
+              <span class="p-2">
+                <input class="btn btn-danger btn-sm" type="submit" value="Confirm">
+              </span>
+              <span class="p-2">
+                <a href="{% url 'publication_app:escuelaAdmin' %}" class="btn btn-primary btn-sm">Cancelar</a>
+              </span>
+            </div>
+            {% csrf_token %}
+          </form>
+        </div>
+      
+      </div>
     </div>
   </div>
 </div>

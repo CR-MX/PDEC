@@ -7,8 +7,8 @@ class Publication(models.Model):
     
     title = models.CharField(max_length=250)
     author = models.CharField(max_length=250)
-    description = models.CharField(max_length=500)
-    content1 = models.TextField(max_length=2000)
+    description = models.CharField(max_length=500, null=True, blank=True)
+    content1 = models.TextField(max_length=2000, null=True, blank=True)
     content2 = models.TextField(max_length=2000, null=True, blank=True)
     content3 = models.TextField(max_length=2000, null=True, blank=True)
     
@@ -41,7 +41,7 @@ class Publication(models.Model):
         return "(No.%i) %s by %s" % (self.id, self.title, self.author)
         
 class Carousel(models.Model):
-    title = models.CharField(max_length=250)
+    title = models.CharField(max_length=250, null=True, blank=True)
     description = models.CharField(max_length=500, null=True, blank=True)
     carousel_pic = models.ImageField(null=True,blank=True)
     activa =(
@@ -63,11 +63,11 @@ class Carousel(models.Model):
         return "(No.%i) %s" % (self.id, self.title)
 
 class School(models.Model):
-     UnidadAcademica = models.CharField(max_length=250)
-     nombreCarrera = models.CharField(max_length=250)
+     UnidadAcademica = models.CharField(max_length=250, null=True, blank=True)
+     nombreCarrera = models.CharField(max_length=250, null=True, blank=True)
      logo_pic = models.ImageField(null=True,blank=True)
-     direction=models.CharField(max_length=500)
-     urlSite = models.CharField(max_length=500)
+     direction=models.CharField(max_length=500, null=True, blank=True)
+     urlSite = models.CharField(max_length=500, null=True, blank=True)
      miniature_pic = models.ImageField(null=True,blank=True)
      Universidad =(
                 ('n','none'),
@@ -78,7 +78,7 @@ class School(models.Model):
                 ('5','Universidad_5'),
                 ('6','Universidad_6')
                 )
-     Universidad = models.CharField(max_length=1, choices=Universidad, blank=True, default='n')
+     Universidad = models.CharField(max_length=1, choices=Universidad, null=True, blank=True, default='n')
      carrusel_pic_1 = models.ImageField(null=True,blank=True)
      cp_1_title  = models.CharField(max_length=250, null=True, blank=True)
      cp_1_description  = models.TextField(max_length=500, null=True, blank=True)
@@ -104,3 +104,27 @@ class School(models.Model):
      file3 = models.FileField(null=True,blank=True)
      def __str__(self) :
         return "(No.%i) %s" % (self.id, self.nombreCarrera)
+class Objetivo(models.Model):
+    title = models.CharField(max_length=250)
+    author = models.CharField(max_length=250)
+    content1 = models.TextField(max_length=2000, null=True, blank=True)
+    pic = models.ImageField(null=True,blank=True)
+    file1 = models.FileField(null=True,blank=True)
+    Activo =(('S','Si'),('N','No'))
+    Activo = models.CharField(max_length=1, choices=Activo, blank=True, default='N')
+class Mision(models.Model):
+    title = models.CharField(max_length=250)
+    author = models.CharField(max_length=250)
+    content1 = models.TextField(max_length=2000, null=True, blank=True)
+    pic = models.ImageField(null=True,blank=True)
+    file1 = models.FileField(null=True,blank=True)
+    Activo =(('S','Si'),('N','No'))
+    Activo = models.CharField(max_length=1, choices=Activo, blank=True, default='N')
+class PlanDeTrabajo(models.Model):
+    title = models.CharField(max_length=250)
+    author = models.CharField(max_length=250)
+    content1 = models.TextField(max_length=2000, null=True, blank=True)
+    pic = models.ImageField(null=True,blank=True)
+    file1 = models.FileField(null=True,blank=True)
+    Activo =(('S','Si'),('N','No'))
+    Activo = models.CharField(max_length=1, choices=Activo, blank=True, default='N')

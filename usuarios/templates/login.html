@@ -20,34 +20,35 @@ Login
 <br>
 <br>
 <br>
-<div class="container card mb-3" style="width: 18rem;">
-    <br>
-    <img src="{% static 'images/uaz.jpg' %} " class="card-img   d-flex justify-content-center" alt="Card image cap">
-    <br>
-    <form method="post">{% csrf_token %}
-        <div class="input-group mb-3 justify-content-center">
-            <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
+<div class="container d-flex justify-content-center">
+    <div class="card ">
+        <div class="card-body " style="width: 18rem;">
+            <div>
+                <img class="card-img-top" src="{% static 'images/uaz.jpg' %} " alt="Card image cap">
             </div>
-            {{ form.username }}
-        </div>
-        <div class="input-group mb-3 justify-content-center">
-            <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
+            <br>
+            <div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="input-group mb-3 justify-content-center">
+                        <div>
+                            <p class="card-text">Usuario:</p>
+                            {{ form.username }}
+                        </div>
+                    </div>
+                    <div class="input-group mb-3 justify-content-center">
+                        <div>
+                            <p class="card-text">Contraseña: </p>
+                            {{ form.password }}
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <input class="btn btn-primary " type="submit" value="Acceder" href="{% url 'eduacionapp:home' %}">
+                    </div>
+                </form>
             </div>
-            {{ form.password }}
         </div>
-        {% if user.is_anonymous %}
-        <div class="d-flex justify-content-center mt-3 login_container">
-            <input class="btn btn-primary" type="submit" value="Acceder" href="{% url 'eduacionapp:home' %}">
-        </div>
-        {% endif %}
-        <!-- <a class="d-flex card-text justify-content-center mt-3 login_container" href="#">¿Olvidaste tu contraseña?</a>
-        <a class="d-flex card-text justify-content-center mt-3 login_container"
-            href="{% url 'eduacionapp:register' %}">Registrate</a> -->
-
-    </form>
-    <br>
+    </div>
 </div>
 
 

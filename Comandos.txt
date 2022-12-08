@@ -17,5 +17,8 @@ python manage.py migrate
 /borramos dbsqlite3 y migrations 
 python3 manage.py makemigrations
 python3 manage.py migrate
-python3 manage.py createsuperuser
+python manage.py createsuperuser
 https://getbootstrap.com/docs/4.0/examples/blog/#
+
+admin@admin.com
+Admin1234.

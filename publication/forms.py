@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Publication,Carousel,School
+from .models import Publication,Carousel,School, Objetivo, Mision, PlanDeTrabajo
 
 class PublicationForm(forms.ModelForm):
     class Meta:
@@ -51,3 +51,34 @@ class SchoolForm(forms.ModelForm):
                 'content_2': forms.Textarea(attrs={'class': 'form-control'}),
                 'content_3': forms.Textarea(attrs={'class': 'form-control'}),
             }
+
+class ObjetivoForm(forms.ModelForm):
+    class Meta:
+        model = Objetivo
+        fields = "__all__"
+        
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+            'content1': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+        }
+class MisionForm(forms.ModelForm):
+    class Meta:
+        model = Mision
+        fields = "__all__"
+        
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+            'content1': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+        }
+class PlanDeTrabajoForm(forms.ModelForm):
+    class Meta:
+        model = PlanDeTrabajo
+        fields = "__all__"
+        
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+            'author': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+            'content1': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+        }

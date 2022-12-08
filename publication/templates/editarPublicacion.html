@@ -1,125 +1,93 @@
 {% extends "base_us.html" %}
 {% block title %}
-Registrar Nuevo Usuario
+Crear Publicación
 {% endblock %}
 
 {% block content %}
 <br>
 <br>
 <br>
-<div class="container card mb-3 allWidth">
-    <div class="sign-form ">
-        <br> 
-        <h1>Actualizar Publicación</h1>
-        <br> 
-        <form enctype="multipart/form-data" method="post" class="post-form"> {% csrf_token %}
+<br>
+<br>
+<br>
+<div class="container d-flex justify-content-center">
+    <div class="card">
+        <div class="card-header">
+            <h2>Editar Publicación</h2>
+        </div>
+        <div class="card-body " style="width: 30rem;">
 
+            <form enctype="multipart/form-data" method="post" class="post-form">
 
-            <div class="row"> 
-
-                <div class="input-group mb-3 col">
-                    <div class="input-group-append">
-                        <span class="input-group-text">Título:</span>
-                    </div>
-                    {{ article.title}}
+                <div class="form-group p-2">
+                    <label>Título:</label>
+                    {{ form.title}}
                 </div>
-                <div class="input-group mb-3 col">
-                    <div class="input-group-append">
-                        <span class="input-group-text">Autor:</span>
-                    </div>
-                    {{ article.author}}
+                <div class="form-group p-2">
+                    <label>Autor:</label>
+                    {{ form.author}}
                 </div>
-
-            </div>
-
-            
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                    <span class="input-group-text">Descripcion:</span>
+                <div class="form-group p-2">
+                    <label>Descripcion:</label>
+                    {{ form.description }}
                 </div>
-                {{ article.description }}
-            </div>
-
-            <div class="row">
-                
-                <div class="input-group mb-3 col">
-                    <div class="input-group-append">
-                        <span input type="file" >Imagen Publicación</span>
-                    </div>
-                    {{ article.publication_pic}}
+                <div class="form-group p-2">
+                    <label>Imagen Publicación</label>
+                    {{ form.publication_pic}}
                 </div>
-                <div class="input-group mb-3 col">
-                    <div class="input-group-append">
-                        <span input type="file" >Imagen Miniatura:</span>
-                    </div>
-                    {{ article.miniature_pic}}
+                <div class="form-group p-2">
+                    <label>Imagen Miniatura:</label>
+                    {{ form.miniature_pic}}
                 </div>
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                    <span class="input-group-text">Sección :</span>
+                <div class="form-group p-2">
+                    <label>Sección:</label>
+                    {{ form.section}}
                 </div>
-                {{ article.section}}
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                    <span class="input-group-text">Universidad asociada:</span>
+                <div class="form-group p-2">
+                    <label>Universidad asociada:</label>
+                    {{ form.Universidad}}
                 </div>
-                {{ article.Universidad}}
-            </div>
-
-
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                    <span class="input-group-text">Contenido 1:</span>
+                <div class="form-group p-2">
+                    <label>Contenido 1:</label>
+                    {{ form.content1}}
                 </div>
-                {{ article.content1}}
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                    <span class="input-group-text">Contenido 2:</span>
+                <div class="form-group p-2">
+                    <label>Contenido 2:</label>
+                    {{ form.content2}}
                 </div>
-                {{ article.content2}}
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                    <span class="input-group-text" >Contenido 3:</span>
+                <div class="form-group p-2">
+                    <label>Contenido 3:</label>
+                    {{ form.content3}}
                 </div>
-                {{ article.content3}}
-            </div>
-
-            <div class="row">
-                
-                 <div class="input-group mb-3 col">
-                    <div class="input-group-append">
-                        <span input type="file" >Archivo 1:</span>
-                    </div>
-                    {{ article.file1}}
+                <div class="form-group p-2">
+                    <label>Archivo 1:</label>
+                    {{ form.file1}}
                 </div>
 
-                <div class="input-group mb-3 col">
-                    <div class="input-group-append">
-                        <span input type="file" >Archivo 2:</span>
-                    </div>
-                    {{ article.file2}}
+                <div class="form-group p-2">
+                    <label>Archivo 2:</label>
+                    {{ form.file2 }}
                 </div>
-            </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-append">
-                    <span input type="file" >Archivo 3:</span>
+                <div class="form-group p-2">
+                    <label>Archivo 3:</label>
+                    {{ form.file3 }}
                 </div>
-                {{ article.file3 }}
-            </div>
- 
-            <div class="d-flex justify-content-center mt-3 login_container row">
-                <button type="submit" class="btn btn-success btn btn-block col">Actualizar Publicación</button>
-                <a class="btn  btn-danger col" href="{% url 'publication_app:publicationAdmin' %}"role="button">Cancelar</a>
-            </div>
-            
-        </form>
-        <br>
-        <br>
+
+
+                <div class=" d-flex justify-content-center">
+                    <span class="p-2">
+                        <input class="btn btn-danger " type="submit" value="Confirm">
+                    </span>
+                    <span class="p-2">
+                        <a href="{% url 'publication_app:publicationAdmin' %}" class="btn btn-primary">Cancelar</a>
+                    </span>
+                </div>
+                {% csrf_token %}
+            </form>
+
+
+        </div>
     </div>
 </div>
 <br>

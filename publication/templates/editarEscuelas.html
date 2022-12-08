@@ -9,204 +9,154 @@ Escuelas
 <br>
 <br>
 <br>
-<div class="container card mb-3">
-    <div class="sign-form ">
-        <br> 
-        <form enctype="multipart/form-data" method="post" class="post-form"> {% csrf_token %}
-             <h1>Editar escuela</h1>   
-             <br>
-            <div class="row">
-                
-                <div class="input-group mb-3 ">
-                    <div class="input-group-append">
-                        <span class="input-group-text">Unidad Académica:</span>
+<br>
+<div class="container d-flex justify-content-center">
+    <div class="card">
+        <div class="card-header">
+            <h2>Editar Escuela</h2>
+        </div>
+        <div class="card-body " style="width: 40rem;">
+
+
+            <form enctype="multipart/form-data" method="post" class="post-form">
+
+                    <div class="form-group p-2">
+                        <label>Unidad Académica:</label>
+                        {{ form.UnidadAcademica}}
                     </div>
-                    {{ form.UnidadAcademica}}
-                </div>
-                <div class="input-group mb-3 ">
-                    <div class="input-group-append">
-                        <span class="input-group-text">Carrera:</span>
+                    <div class="form-group p-2">
+                        <label>Carrera:</label>
+                        {{ form.nombreCarrera}}
                     </div>
-                    {{ form.nombreCarrera}}
-                </div>
-            </div>
 
 
-            <div class="row">
-                <div class="input-group mb-3 ">
-                    <div class="input-group-append">
-                        <span class="input-group-text">Dirección:</span>
+                    <div class="form-group p-2">
+                        <label>Dirección:</label>
+                        {{ form.direction}}
                     </div>
-                    {{ form.direction}}
-                </div>
-                <div class="input-group mb-3 ">
-                    <div class="input-group-append">
-                        <span class="input-group-text">Sitio web:</span>
+                    <div class="form-group p-2">
+                        <label>Sitio web:</label>
+                        {{ form.urlSite}}
                     </div>
-                    {{ form.urlSite}}
-                </div>
 
-            </div>
 
-            <div class="row">
-                
-                <div class="input-group mb-3 col">
-                    <div class="input-group-append">
-                        <span input type="file" >Logo carrera:</span>
+
+                    <div class="form-group p-2">
+                        <label>Logo carrera:</label>
+                        {{ form.logo_pic}}
                     </div>
-                    {{ form.logo_pic}}
-                </div>
-                <div class="input-group mb-3 col">
-                    <div class="input-group-append">
-                        <span input type="file" >Miniatura logo carrera:</span>
+                    <div class="form-group p-2">
+                        <label>Miniatura logo carrera:</label>
+                        {{ form.miniature_pic}}
                     </div>
-                    {{ form.miniature_pic}}
+
+                <div class="form-group p-2">
+                    <label>Universidad asociada:</label>
+                    {{ form.Universidad}}
                 </div>
 
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                    <span class="input-group-text">Universidad asociada:</span>
-                </div>
-                {{ form.Universidad}}
-            </div>
-            <br>
 
-            <div class="input-group mb-3 col">
-                <div class="input-group-append">
-                        <span input type="file" >Carrusel 1:</span>
+                <div class="form-group p-2">
+                    <label>Carrusel 1:</label>
+                    {{ form.carrusel_pic_1}}
                 </div>
-                {{ form.carrusel_pic_1}}
-            </div>
 
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                        <span class="input-group-text">Título 1:</span>
+                <div class="form-group p-2">
+                    <label>Título 1:</label>
+                    {{ form.cp_1_title}}
                 </div>
-                {{ form.cp_1_title}}
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                        <span class="input-group-text">Descripción 1:</span>
+                <div class="form-group p-2">
+                    <label>Descripción 1:</label>
+                    {{ form.cp_1_description}}
                 </div>
-                {{ form.cp_1_description}}
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                        <span class="input-group-text">Link 1:</span>
+                <div class="form-group p-2">
+                    <label>Link 1:</label>
+                    {{ form.cp_1_linkButon}}
                 </div>
-                {{ form.cp_1_linkButon}}
-            </div>
-            
 
-
-                <div class="input-group mb-3 col">
-                    <div class="input-group-append">
-                        <span input type="file" >Carrusel 2:</span>
-                    </div>
+                <div class="form-group p-2">
+                    <label>Carrusel 2:</label>
                     {{ form.carrusel_pic_2}}
                 </div>
 
-                <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                        <span class="input-group-text">Título 2:</span>
+                <div class="form-group p-2">
+                    <label>Título 2:</label>
+                    {{ form.cp_2_title}}
                 </div>
-                {{ form.cp_2_title}}
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                        <span class="input-group-text">Descripción 2:</span>
+                <div class="form-group p-2">
+                    <label>Descripción 2:</label>
+                    {{ form.cp_2_description}}
                 </div>
-                {{ form.cp_2_description}}
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                        <span class="input-group-text">Link 2:</span>
+                <div class="form-group p-2">
+                    <label>Link 2:</label>
+                    {{ form.cp_2_linkButon}}
                 </div>
-                {{ form.cp_2_linkButon}}
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-append">
-                    <span input type="file" >Carrusel 3:</span>
-                </div>
-                {{ form.carrusel_pic_3}}
-            </div>
-
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                        <span class="input-group-text">Título 3:</span>
-                </div>
-                {{ form.cp_3_title}}
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                        <span class="input-group-text">Descripción 3:</span>
-                </div>
-                {{ form.cp_3_description}}
-            </div>
-            <div class="input-group mb-3 ">
-                <div class="input-group-append">
-                        <span class="input-group-text">Link 3:</span>
-                </div>
-                {{ form.cp_3_linkButon}}
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-append">
-                    <span class="input-group-text">Contenido 1:</span>
-                </div>
-                {{ form.content_1}}
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-append">
-                    <span class="input-group-text">Contenido 2:</span>
-                </div>
-                {{ form.content_2}}
-            </div>
-
-            <div class="input-group mb-3">
-                <div class="input-group-append">
-                    <span class="input-group-text">Contenido 3:</span>
-                </div>
-                {{ form.content_3}}
-            </div>
 
 
-            <div class="row">
-                
-                 <div class="input-group mb-3 col">
-                    <div class="input-group-append">
-                        <span input type="file" >Archivo 1:</span>
+
+                <div class="form-group p-2">
+                    <label>Carrusel 3:</label>
+                    {{ form.carrusel_pic_3}}
+                </div>
+
+                <div class="form-group p-2">
+                    <label>Título 3:</label>
+                    {{ form.cp_3_title}}
+                </div>
+                <div class="form-group p-2">
+                    <label>Descripción 3:</label>
+                    {{ form.cp_3_description}}
+                </div>
+                <div class="form-group p-2">
+                    <label>Link 3:</label>
+                    {{ form.cp_3_linkButon}}
+                </div>
+
+                <div class="form-group p-2">
+                    <label>Contenido 1:</label>
+                    {{ form.content_1}}
+                </div>
+                <div class="form-group p-2">
+                    <label>Contenido 2:</label>
+                    {{ form.content_2}}
+                </div>
+
+                <div class="form-group p-2">
+                    <label>Contenido 3:</label>
+                    {{ form.content_3}}
+                </div>
+
+
+
+                    <div class="form-group p-2">
+                        <label>Archivo 1:</label>
+                        {{ form.file1}}
                     </div>
-                    {{ form.file1}}
-                </div>
 
-                <div class="input-group mb-3 col">
-                    <div class="input-group-append">
-                        <span input type="file" >Archivo 2:</span>
+                    <div class="form-group p-2">
+                        <label>Archivo 2:</label>
+                        {{ form.file2 }}
                     </div>
-                    {{ form.file2 }}
-                </div>
-            </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-append">
-                    <span input type="file" >Archivo 3:</span>
+                <div class="form-group p-2">
+                    <label>Archivo 3:</label>
+                    {{ form.file3 }}
                 </div>
-                {{ form.file3 }}
-            </div>
-            
-            <div class="d-flex justify-content-center mt-3 login_container row">
-                <button type="submit" class="btn btn-success btn btn-block col">Actualizar Escuela</button>
-                <a class="btn  btn-danger col" href="{% url 'publication_app:escuelaAdmin' %}"role="button">Cancelar</a>
-            </div>
 
-        </form>
-<br>
-<br>
-<br>
+                <div class=" d-flex justify-content-center">
+                    <span class="p-2">
+                        <input class="btn btn-danger " type="submit" value="Confirm">
+                    </span>
+                    <span class="p-2">
+                        <a href="{% url 'publication_app:escuelaAdmin' %}" class="btn btn-primary">Cancelar</a>
+                    </span>
+                </div>
+                {% csrf_token %}
+            </form>
+        </div>
     </div>
 </div>
+<br>
+<br>
+<br>
 {% endblock %}

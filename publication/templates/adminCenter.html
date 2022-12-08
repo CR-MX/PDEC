@@ -18,13 +18,14 @@ Centro de administración
             <h1 class="display-4 font-italic">Centro de administración</h1>
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="col-sm-6 ">
             <div class="card border border-secondary">
                 <div class="card-body">
                     <h5 class="card-title">Publicaciones</h5>
                     <p class="card-text">Sección para gestionar las publicaciones de la plataforma (Ver,Editar,Actualizar y Eliminar).</p>
-                    <a href="{% url 'publication_app:publicationAdmin' %}" class="btn btn-info">Gestionar Publicaciones</a>
+                    <a href="{% url 'publication_app:publicationAdmin' %}" class="btn btn-primary">Gestionar Publicaciones</a>
                 </div>
             </div>
         </div>
@@ -33,7 +34,7 @@ Centro de administración
                 <div class="card-body">
                     <h5 class="card-title">Unidades Académicas</h5>
                     <p class="card-text">Sección para gestionar las unidades académicas de la plataforma (Ver,Editar,Actualizar y Eliminar).</p>
-                    <a href="{% url 'publication_app:escuelaAdmin' %}" class="btn btn-info">Gestionar Unidades Académicas</a>
+                    <a href="{% url 'publication_app:escuelaAdmin' %}" class="btn btn-primary">Gestionar Unidades Académicas</a>
                 </div>
             </div>
         </div>
@@ -45,7 +46,18 @@ Centro de administración
                 <div class="card-body">
                     <h5 class="card-title">Carrusel página principal</h5>
                     <p class="card-text">Sección para gestionar los carruseles académicas de la plataforma (Ver,Editar,Actualizar y Eliminar).</p>
-                    <a href="{% url 'publication_app:carruselAdmin' %}" class="btn btn-info">Gestionar Carruseles</a>
+                    <a href="{% url 'publication_app:carruselAdmin' %}" class="btn btn-primary">Gestionar Carruseles</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card border border-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">Barra de navegación</h5>
+                    <p class="card-text">Sección para gestionar los carruseles académicas de la plataforma (Ver,Editar,Actualizar y Eliminar).</p>
+                    <a href="{% url 'publication_app:indexObjetivo' %}" class="btn btn-primary">Objetivo</a>
+                    <a href="{% url 'publication_app:indexMision' %}" class="btn btn-primary">Misión</a>
+                    <a href="{% url 'publication_app:indexPlanDeTrabajo' %}" class="btn btn-primary">Plan de trabajo</a>
                 </div>
             </div>
         </div>
