@@ -22,7 +22,7 @@ class CarruselForm(forms.ModelForm):
         fields = ('title', 'description', 'carousel_pic', 'ordenPublication', 'showbuton', 'nameButon', 'linkButon')
 
         widgets = {
-                'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Campo Obligatorio'}),
+                'title': forms.TextInput(attrs={'class': 'form-control'}),
                 'description': forms.TextInput(attrs={'class': 'form-control'}),
                 'nameButon': forms.Textarea(attrs={'class': 'form-control'}),
                 'linkButon': forms.Textarea(attrs={'class': 'form-control'}),
