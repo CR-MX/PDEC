@@ -26,8 +26,12 @@ landing
           {% endif %}
           <div class="container">
             <div class="carousel-caption text-left">
-              <h1 class="sombrita">{{c_sec_1.title}}</h1>
+              {% if c_sec_1.title %}
+                <h1 class="sombrita">{{c_sec_1.title}}</h1>
+              {% endif %}
+              {% if c_sec_1.description %}
               <p class="sombrita">{{c_sec_1.description}}</p>
+              {% endif %}
               {% if c_sec_1.showbuton == 'A'  %}
                 <p><a class="btn btn-lg btn-secondary" href="{{c_sec_1.linkButon}}" role="button">{{c_sec_1.nameButon}}</a></p>
               {% endif %}
@@ -42,8 +46,12 @@ landing
           {% endif %}
         <div class="container">
           <div class="carousel-caption">
-            <h1 class="sombrita">{{c_sec_2.title}}</h1>
-            <p class="sombrita">{{c_sec_2.description}}</p>
+            {% if c_sec_2.title %}
+                <h1 class="sombrita">{{c_sec_2.title}}</h1>
+              {% endif %}
+              {% if c_sec_2.description %}
+              <p class="sombrita">{{c_sec_2.description}}</p>
+              {% endif %}
             {% if c_sec_2.showbuton == 'A'  %}
             <p><a class="btn btn-lg btn-secondary" href="{{c_sec_2.linkButon}}" role="button">{{c_sec_2.nameButon}}</a></p>
             {% endif %}
@@ -58,8 +66,14 @@ landing
           {% endif %}
         <div class="container">
           <div class="carousel-caption text-right">
-            <h1 class="sombrita">{{c_sec_3.title}}</h1>
-            <p class="sombrita">{{c_sec_3.description}}</p>
+
+            {% if c_sec_3.title %}
+                <h1 class="sombrita">{{c_sec_3.title}}</h1>
+              {% endif %}
+              {% if c_sec_3.description %}
+              <p class="sombrita">{{c_sec_3.description}}</p>
+              {% endif %}
+
             {% if c_sec_3.showbuton == 'A'  %}
             <p><a class="btn btn-lg btn-secondary" href="{{c_sec_3.linkButon}}" role="button">{{c_sec_3.nameButon}}</a></p>
             {% endif %}
@@ -70,11 +84,11 @@ landing
     </div>
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
+      <span class="sr-only"></span>
     </a>
     <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
+      <span class="sr-only"></span>
     </a>
   </div>
 
