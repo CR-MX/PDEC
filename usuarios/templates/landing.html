@@ -9,10 +9,16 @@ landing
   .sombrita {
     text-shadow: 2px 2px 5px rgb(0, 0, 0);
   }
+  @media (max-width: 768px) {
+    .cosoNav {
+      height: 175px !important;
+      width: 345px !important;
+    }
+  }
   </style>
 <main role="main">
 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide cosoNav" data-ride="carousel" style="height: 300px !important;">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>

@@ -330,32 +330,32 @@ def eliminarPlanDeTrabajo(request, id):
 # nav --------------------------------------
 
 def navObjetivo(request):
-    article = Objetivo.objects.all().filter(Activo='S').first()
+    article = Objetivo.objects.all().filter(Activo='S')
     all_article = Publication.objects.all().order_by('-published')
     all_article = all_article[0:6]
     context = {
-        'article': article, 
+        'articleNav': article, 
         'all_article':all_article
     }
     return render(request, 'vistasNav.html', context)
 
 def navMision(request):
-    article = Mision.objects.all().filter(Activo='S').first()
+    article = Mision.objects.all().filter(Activo='S')
 
     all_article = Publication.objects.all().order_by('-published')
     all_article = all_article[0:6]
     context = {
-        'article': article, 
+        'articleNav': article, 
         'all_article':all_article
     }
     return render(request, 'vistasNav.html', context)
     
 def navPlanDeTrabajo(request):
-    article = PlanDeTrabajo.objects.all().filter(Activo='S').first()
+    article = PlanDeTrabajo.objects.all().filter(Activo='S')
     all_article = Publication.objects.all().order_by('-published')
     all_article = all_article[0:6]
     context = {
-        'article': article, 
+        'articleNav': article, 
         'all_article':all_article
     }
     return render(request, 'vistasNav.html', context)
@@ -433,11 +433,11 @@ def eliminarReglamento(request, id):
     return render(request, 'eliminarReglamento.html', context)
 
 def navReglamento(request):
-    article = Reglamento.objects.all().filter(Activo='S').first()
+    article = Reglamento.objects.all().filter(Activo='S')
     all_article = Publication.objects.all().order_by('-published')
     all_article = all_article[0:6]
     context = {
-        'article': article, 
+        'articleNav': article, 
         'all_article':all_article
     }
     return render(request, 'vistasNav.html', context)

@@ -15,8 +15,9 @@
     <div class="row">
         <div class="col-lg-8">
             <article>
-                <div class="card">
 
+            {% for article in articleNav %}
+                <div class="card">
                     <div class="card-header">
                         <!-- Post title-->
                         <h1 class="fw-bolder mb-1">{{article.title}}</h1>
@@ -44,10 +45,10 @@
                             <a class="fs-5 mb-4" href="{{article.file1.url}}" target="_blank">{{article.file1}}</a>
                             {% endif %}
                         </section>
-
                     </div>
                 </div>
-
+                <br>
+            {% endfor %}
 
 
             </article>
