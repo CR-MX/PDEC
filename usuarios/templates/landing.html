@@ -10,25 +10,30 @@ landing
     text-shadow: 2px 2px 5px rgb(0, 0, 0);
   }
   @media (max-width: 768px) {
-    .cosoNav {
-      height: 175px !important;
-      width: 345px !important;
+    .sm-carrusel {
+      height: 190px !important;
+      width: auto !important;
+    }
+    .img-pequena{
+      height: 190px !important;
+      width: auto !important;
     }
   }
+
   </style>
 <main role="main">
 
-  <div id="myCarousel" class="carousel slide cosoNav" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-    <div class="carousel-inner">
+    <div class="carousel-inner sm-carrusel">
       <div class="carousel-item active">
         {% for c_sec_1 in c_sec_1 %}
           {% if c_sec_1.carousel_pic  %}
-            <img class="first-slide" src="{{c_sec_1.carousel_pic.url}}" alt="First slide">
+            <img class="first-slide img-pequena" src="{{c_sec_1.carousel_pic.url}}" alt="First slide">
           {% endif %}
           <div class="container">
             <div class="carousel-caption text-left">
@@ -48,7 +53,7 @@ landing
       <div class="carousel-item">
         {% for c_sec_2 in c_sec_2 %}
           {% if c_sec_2.carousel_pic  %}
-            <img class="second-slide" src="{{c_sec_2.carousel_pic.url}}" alt="Second slide">
+            <img class="second-slide img-pequena" src="{{c_sec_2.carousel_pic.url}}" alt="Second slide">
           {% endif %}
         <div class="container">
           <div class="carousel-caption">
@@ -68,7 +73,7 @@ landing
       <div class="carousel-item">
         {% for c_sec_3 in c_sec_3 %}
           {% if c_sec_3.carousel_pic  %}
-            <img class="third-slide" src="{{c_sec_3.carousel_pic.url}}" alt="Third slide">
+            <img class="third-slide img-pequena" src="{{c_sec_3.carousel_pic.url}}" alt="Third slide">
           {% endif %}
         <div class="container">
           <div class="carousel-caption text-right">
