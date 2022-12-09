@@ -15,55 +15,67 @@
     <div class="row">
         <div class="col-lg-8">
             <article>
-                <header class="mb-4">
-                    <!-- Post title-->
-                    <h1 class="fw-bolder mb-1">{{article.title}}</h1>
-                    <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2">Publicado el {{article.published}} por {{article.author}}
+                <div class="card">
+
+
+                    <div class="card-header">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">{{article.title}}</h1>
+                        <!-- Post meta content-->
                     </div>
-                </header>
-                <figure class="mb-4">
-                    {% if article.publication_pic %}
-                    <img class="card-img-top border-primary" src="{{article.publication_pic.url}}" width="900"
-                        height="400">
-                    {% else %}
-                    <img class="img-fluid rounded" src=" https://dummyimage.com/900x400/ced4da/6c757d.jpg">
-                    {% endif %}
-                </figure>
-                <section class="mb-5">
-                    <p class="fs-5 mb-4">{{article.content1}}</p>
-                    {% if article.content2 %}
-                    <hr>
-                    <p class="fs-5 mb-4">{{article.content2}}</p>
-                    {% endif %}
-                    {% if article.content2 %}
-                    <hr>
-                    <p class="fs-5 mb-4">{{article.content3}}</p>
-                    {% endif %}
-                </section>
-                <section class="mb-5">
-                    {% if article.file1 or article.file2 or article.file3 %}
-                    <hr>
-                    <p>Archivos adjuntos</p>
-                    {% if article.file1 %}
-                    <a class="fs-5 mb-4" href="{{article.file1.url}}"
-                        target="_blank">{{article.file1}}</a>
-                    {% endif %}
-                    {% if article.file2 %}
-                    <a class="fs-5 mb-4" href="{{article.file2.url}}"
-                        target="_blank">{{article.file2}}</a>
-                    {% endif %}
-                    {% if article.file3 %}
-                    <a class="fs-5 mb-4" href="{{article.file3.url}}"
-                        target="_blank">{{article.file3}}</a>
-                    {% endif %}
-                    {% endif %}
+                    <div class="card-body">
 
-                </section>
+                        <div class="text-muted fst-italic mb-2">Publicado el {{article.published}} por {{article.author}}</div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <figure class="mb-4">
+                                {% if article.publication_pic %}
+                                <img class="card-img-top border-primary" src="{{article.publication_pic.url}}" width="600" height="400">
+                                {% else %}
+                                <img class="img-fluid rounded" src=" https://dummyimage.com/600x400/ced4da/6c757d.jpg">
+                                {% endif %}
+                            </figure>
+                        </div>
+                        <br>
+                        
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">{{article.content1}}</p>
+                            {% if article.content2 %}
+                            <hr>
+                            <p class="fs-5 mb-4">{{article.content2}}</p>
+                            {% endif %}
+                            {% if article.content2 %}
+                            <hr>
+                            <p class="fs-5 mb-4">{{article.content3}}</p>
+                            {% endif %}
+                        </section>
+                        <section class="mb-5">
+                            {% if article.file1 or article.file2 or article.file3 %}
+                            <hr>
+                            <p>Archivos adjuntos</p>
+                            {% if article.file1 %}
+                            <a class="fs-5 mb-4" href="{{article.file1.url}}"
+                                target="_blank">{{article.file1}}</a>
+                            {% endif %}
+                            {% if article.file2 %}
+                            <a class="fs-5 mb-4" href="{{article.file2.url}}"
+                                target="_blank">{{article.file2}}</a>
+                            {% endif %}
+                            {% if article.file3 %}
+                            <a class="fs-5 mb-4" href="{{article.file3.url}}"
+                                target="_blank">{{article.file3}}</a>
+                            {% endif %}
+                            {% endif %}
+        
+                        </section>
+                        
+                    </div>
+
+                </div>
 
 
 
-        </div><!-- /.blog-post -->
+            </div><!-- /.blog-post -->
         </article>
         <div class="col-lg-4">
             <div class="card mb-4">

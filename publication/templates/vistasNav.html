@@ -24,14 +24,17 @@
                     </div>
                     <div class="card-body">
                         <div class="text-muted fst-italic mb-2">Publicado el {{article.published}} por {{article.author}}</div>
-                        
-                        <figure class="mb-4">
-                            {% if article.pic %}
-                            <img class="card-img-top border-primary" src="{{article.pic.url}}" width="900" height="400">
-                            {% else %}
-                            <img class="img-fluid rounded" src=" https://dummyimage.com/900x400/ced4da/6c757d.jpg">
-                            {% endif %}
-                        </figure>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <figure class="mb-4">
+                                {% if article.pic %}
+                                <img class="card-img-top border-primary" src="{{article.pic.url}}" width="600" height="400">
+                                {% else %}
+                                <img class="img-fluid rounded" src=" https://dummyimage.com/600x400/ced4da/6c757d.jpg">
+                                {% endif %}
+                            </figure>
+                        </div>
+                        <br>
                         <section class="mb-5">
                             <p class="fs-5 mb-4">{{article.content1}}</p>
                         </section>
