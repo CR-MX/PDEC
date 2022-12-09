@@ -214,7 +214,7 @@ def crearMision(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return redirect('publication_app:publicationAdmin')
+            return redirect('publication_app:indexMision')
             
     else:
         form = MisionForm()
@@ -227,7 +227,7 @@ def crearPlanDeTrabajo(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return redirect('publication_app:publicationAdmin')
+            return redirect('publication_app:indexPlanDeTrabajo')
             
     else:
         form = PlanDeTrabajoForm()
